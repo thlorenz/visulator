@@ -1,0 +1,48 @@
+{
+  "name": "visulator",
+  "version": "0.0.0",
+  "description": "A machine emulator that visualizes how each instruction is processed",
+  "main": "index.js",
+  "scripts": {
+    "test": "tap test/*.js",
+    "watch": "watchify -d web/js/main.js -o web/js/bundle.js",
+    "bundle": "browserify web/js/main.js | uglifyjs >web/js/bundle.js"
+  },
+  "browser": {
+    "./deps/capstone.js": "./deps/capstone-browser.js"
+  },
+  "dependencies": {
+    "capstone": "~3.0.0"
+  },
+  "devDependencies": {
+    "browserify": "~9.0.8",
+    "tap": "~0.4.3",
+    "uglify-js": "~2.4.20",
+    "watchify": "~3.1.2"
+  },
+  "keywords": [
+    "CPU",
+    "emulator",
+    "learn",
+    "machine",
+    "computer",
+    "visualize"
+  ],
+  "author": {
+    "name": "Thorsten Lorenz",
+    "email": "thlorenz@gmx.de",
+    "url": "http://thlorenz.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/thlorenz/visulator.git"
+  },
+  "homepage": "https://github.com/thlorenz/visulator",
+  "license": {
+    "type": "GPL3",
+    "url": "https://github.com/thlorenz/visulator/blob/master/LICENSE"
+  },
+  "engine": {
+    "node": ">=0.10"
+  }
+}

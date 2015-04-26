@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>visulator</title>
+    <link rel="stylesheet" href="web/css/index.css" type="text/css" media="screen" charset="utf-8">
+    <!-- Use minified version with shitload of stuff we don't need until we figure out why build.py fails
+         at least on OSX.
+         We cannot use the capstone package for node since that uses native bindings.
+         Additionally that server side module isn't working properly ATM due to ffi compatibility problems.
+         ffi isn't properly listed as a dependency and installing it causes errors most likely due to
+         function signature changes.
+
+         Instead we use lib/capstone as a wrapper to load it server side and browser side the same way.
+         We modified the minified capstone a bit to export itself whenever `module` exists.
+    -->
+    <script src="deps/capstone.js"></script>
+  </head>
+  <body>
+    <h2>visulator</h2>
+    <p>Current status: MAD SCIENCE, stay tuned...</p>
+    <script type="text/javascript" src="web/js/bundle.js"></script>
+  </body>
+</html>
