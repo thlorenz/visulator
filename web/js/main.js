@@ -52,6 +52,8 @@ function initEditors(instr) {
   byteEditor.setTheme('ace/theme/monokai');
   byteEditor.setFontSize(16);
   byteEditor.renderer.setShowGutter(false);
+  // todo: refresh on edit of course ;)
+  byteEditor.setReadOnly(true);
 
   asmEditor = ace.edit('asm-editor');
   asmEditor.getSession().setMode('ace/mode/assembly_x86');
@@ -60,7 +62,6 @@ function initEditors(instr) {
   asmEditor.renderer.setShowGutter(false);
   asmEditor.setReadOnly(true);
 }
-// todo: refresh on edit of course ;)
 
 if (inBrowser) initEditors();
 
