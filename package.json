@@ -12,7 +12,9 @@
     "./deps/capstone.js": "./deps/capstone-browser.js"
   },
   "dependencies": {
-    "capstone": "~3.0.0"
+    "brace": "~0.5.1",
+    "capstone": "~3.0.0",
+    "text-table": "~0.2.0"
   },
   "devDependencies": {
     "browserify": "~9.0.8",

@@ -6,6 +6,8 @@ A machine emulator that visualizes how each instruction is processed
 
 **MAD SCIENCE**
 
+[ Play with it](https://thlorenz.github.io/visulator)
+
 ## License
 
 GPL3

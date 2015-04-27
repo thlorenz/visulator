@@ -2,3 +2,15 @@ body {
   background: #252525;
   color: yellowgreen;
 }
+
+section.byte-editor { 
+  position : absolute !important;
+  width    : 50%;
+  height   : 50%;
+}
+section.asm-editor { 
+  position : absolute !important;;
+  top      : 50%;
+  width    : 50%;
+  height   : 50%;
+}
