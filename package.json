@@ -4,7 +4,7 @@
   "description": "A machine emulator that visualizes how each instruction is processed",
   "main": "index.js",
   "scripts": {
-    "test": "tap test/*.js",
+    "test": "tape test/*.js",
     "docme": "docme README.md -- --configure .jsdocrc",
     "watch": "watchify -d web/js/main.js -o web/js/bundle.js",
     "bundle": "browserify web/js/main.js | uglifyjs >web/js/bundle.js"

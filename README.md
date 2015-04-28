@@ -23,6 +23,56 @@ A machine emulator that visualizes how each instruction is processed
 </div>
 <dl>
 <dt>
+<h4 class="name" id="cu:: _dec"><span class="type-signature"></span>cu:: _dec<span class="signature">(opcode, asm)</span><span class="type-signature"></span></h4>
+</dt>
+<dd>
+<div class="description">
+<p>Decrement a register</p>
+<pre><code class="lang-asm">48   dec    eax
+49   dec    ecx
+4a   dec    edx
+4b   dec    ebx
+4c   dec    esp
+4d   dec    ebp
+4e   dec    esi
+4f   dec    edi</code></pre>
+</div>
+<h5>Parameters:</h5>
+<table class="params">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th class="last">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="name"><code>opcode</code></td>
+<td class="type">
+</td>
+<td class="description last"></td>
+</tr>
+<tr>
+<td class="name"><code>asm</code></td>
+<td class="type">
+</td>
+<td class="description last"></td>
+</tr>
+</tbody>
+</table>
+<dl class="details">
+<dt class="tag-source">Source:</dt>
+<dd class="tag-source"><ul class="dummy">
+<li>
+<a href="https://github.com/thlorenz/visulator/blob/master/x86/cu.js">x86/cu.js</a>
+<span>, </span>
+<a href="https://github.com/thlorenz/visulator/blob/master/x86/cu.js#L168">lineno 168</a>
+</li>
+</ul></dd>
+</dl>
+</dd>
+<dt>
 <h4 class="name" id="cu::next"><span class="type-signature"></span>cu::next<span class="signature">()</span><span class="type-signature"></span></h4>
 </dt>
 <dd>
@@ -92,7 +142,7 @@ instead).</p>
 <li>
 <a href="https://github.com/thlorenz/visulator/blob/master/x86/cu.js">x86/cu.js</a>
 <span>, </span>
-<a href="https://github.com/thlorenz/visulator/blob/master/x86/cu.js#L36">lineno 36</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/x86/cu.js#L38">lineno 38</a>
 </li>
 </ul></dd>
 </dl>
@@ -137,7 +187,7 @@ instead).</p>
 <li>
 <a href="https://github.com/thlorenz/visulator/blob/master/x86/cu.js">x86/cu.js</a>
 <span>, </span>
-<a href="https://github.com/thlorenz/visulator/blob/master/x86/cu.js#L133">lineno 133</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/x86/cu.js#L143">lineno 143</a>
 </li>
 </ul></dd>
 </dl>
@@ -182,6 +232,190 @@ instead).</p>
 <div class="param-desc">
 <p>two digit string representation</p>
 </div>
+</dd>
+<dt>
+<h4 class="name" id="registers::_flagMasks"><span class="type-signature"></span>registers::_flagMasks<span class="signature">()</span><span class="type-signature"></span></h4>
+</dt>
+<dd>
+<div class="description">
+<p>Flags representation for each case of ONE flag set at a time.
+Used to isolate each flag for flag operations</p>
+<p>see: <a href="http://en.wikipedia.org/wiki/FLAGS_register">wiki flags register</a></p>
+</div>
+<dl class="details">
+<dt class="tag-source">Source:</dt>
+<dd class="tag-source"><ul class="dummy">
+<li>
+<a href="https://github.com/thlorenz/visulator/blob/master/x86/regs.js">x86/regs.js</a>
+<span>, </span>
+<a href="https://github.com/thlorenz/visulator/blob/master/x86/regs.js#L25">lineno 25</a>
+</li>
+</ul></dd>
+</dl>
+</dd>
+<dt>
+<h4 class="name" id="registers::assign"><span class="type-signature"></span>registers::assign<span class="signature">(regs)</span><span class="type-signature"></span></h4>
+</dt>
+<dd>
+<div class="description">
+<p>Assigns given registers with the supplied values.
+Leaves all other flags alone.</p>
+</div>
+<h5>Parameters:</h5>
+<table class="params">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th class="last">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="name"><code>regs</code></td>
+<td class="type">
+</td>
+<td class="description last"></td>
+</tr>
+</tbody>
+</table>
+<dl class="details">
+<dt class="tag-source">Source:</dt>
+<dd class="tag-source"><ul class="dummy">
+<li>
+<a href="https://github.com/thlorenz/visulator/blob/master/x86/regs.js">x86/regs.js</a>
+<span>, </span>
+<a href="https://github.com/thlorenz/visulator/blob/master/x86/regs.js#L127">lineno 127</a>
+</li>
+</ul></dd>
+</dl>
+</dd>
+<dt>
+<h4 class="name" id="registers::getFlag"><span class="type-signature"></span>registers::getFlag<span class="signature">(flag)</span><span class="type-signature"> &rarr; {Number}</span></h4>
+</dt>
+<dd>
+<div class="description">
+<p>Returns a given flag</p>
+<p> First masks out the bit of the flag we are interested in
+and then shifts our flag bit into lowest bit.</p>
+</div>
+<h5>Parameters:</h5>
+<table class="params">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th class="last">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="name"><code>flag</code></td>
+<td class="type">
+</td>
+<td class="description last"></td>
+</tr>
+</tbody>
+</table>
+<dl class="details">
+<dt class="tag-source">Source:</dt>
+<dd class="tag-source"><ul class="dummy">
+<li>
+<a href="https://github.com/thlorenz/visulator/blob/master/x86/regs.js">x86/regs.js</a>
+<span>, </span>
+<a href="https://github.com/thlorenz/visulator/blob/master/x86/regs.js#L84">lineno 84</a>
+</li>
+</ul></dd>
+</dl>
+<h5>Returns:</h5>
+<div class="param-desc">
+<p><code>1</code> if flag is set, otherwise <code>0</code></p>
+</div>
+<dl>
+<dt>
+Type
+</dt>
+<dd>
+<span class="param-type">Number</span>
+</dd>
+</dl>
+</dd>
+<dt>
+<h4 class="name" id="registers::setFlag"><span class="type-signature"></span>registers::setFlag<span class="signature">(flag)</span><span class="type-signature"></span></h4>
+</dt>
+<dd>
+<div class="description">
+<p>Sets a given flag</p>
+<p> <code>or</code>s flags with mask that will preserve all other flags and set
+our flag since that bit is set in the mask.</p>
+</div>
+<h5>Parameters:</h5>
+<table class="params">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th class="last">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="name"><code>flag</code></td>
+<td class="type">
+</td>
+<td class="description last"></td>
+</tr>
+</tbody>
+</table>
+<dl class="details">
+<dt class="tag-source">Source:</dt>
+<dd class="tag-source"><ul class="dummy">
+<li>
+<a href="https://github.com/thlorenz/visulator/blob/master/x86/regs.js">x86/regs.js</a>
+<span>, </span>
+<a href="https://github.com/thlorenz/visulator/blob/master/x86/regs.js#L98">lineno 98</a>
+</li>
+</ul></dd>
+</dl>
+</dd>
+<dt>
+<h4 class="name" id="registers::unsetFlag"><span class="type-signature"></span>registers::unsetFlag<span class="signature">(flag)</span><span class="type-signature"></span></h4>
+</dt>
+<dd>
+<div class="description">
+<p>Unsets a given flag</p>
+<p>First we invert the mask for the flag to unset.
+Then we <code>and</code> the flags with that mask which unsets
+our flag since that's the only bit in the mask that's <code>0</code>.</p>
+</div>
+<h5>Parameters:</h5>
+<table class="params">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th class="last">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="name"><code>flag</code></td>
+<td class="type">
+</td>
+<td class="description last"></td>
+</tr>
+</tbody>
+</table>
+<dl class="details">
+<dt class="tag-source">Source:</dt>
+<dd class="tag-source"><ul class="dummy">
+<li>
+<a href="https://github.com/thlorenz/visulator/blob/master/x86/regs.js">x86/regs.js</a>
+<span>, </span>
+<a href="https://github.com/thlorenz/visulator/blob/master/x86/regs.js#L112">lineno 112</a>
+</li>
+</ul></dd>
+</dl>
 </dd>
 </dl>
 </article>
