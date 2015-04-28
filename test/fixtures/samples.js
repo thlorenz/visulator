@@ -7,3 +7,23 @@ exports.strcpy = [
   0x0C, 0x16, 0x88, 0x4C, 0x13, 0x01, 0x83, 0xC2, 0x01, 
   0x84, 0xC9, 0x75, 0xF1, 0x5B, 0x5E, 0x5D, 0xC3
 ]
+
+/* strcpy
+0x100  '55'           push   ebp
+0x101  '31 d2'        xor    edx, edx
+0x103  '89 e5'        mov    ebp, esp
+0x105  '8b 45 08'     mov    eax, dword ptr [ebp + 8]
+0x108  '56'           push   esi
+0x109  '8b 75 0c'     mov    esi, dword ptr [ebp + 0xc]
+0x10c  '53'           push   ebx
+0x10d  '8d 58 ff'     lea    ebx, dword ptr [eax - 1]
+0x110  '0f b6 0c 16'  movzx  ecx, byte ptr [esi + edx]
+0x114  '88 4c 13 01'  mov    byte ptr [ebx + edx + 1], cl
+0x118  '83 c2 01'     add    edx, 1
+0x11b  '84 c9'        test   cl, cl
+0x11d  '75 f1'        jne    0x110
+0x11f  '5b'           pop    ebx
+0x120  '5e'           pop    esi
+0x121  '5d'           pop    ebp
+0x122  'c3'           ret
+*/
