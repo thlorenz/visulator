@@ -8,12 +8,17 @@ var tableized = steps.map(tableize);
 console.log(table(tableized));
 
 function tableize(step) {
-  function toString(acc, k) {
+  function toString(acc, k, idx) {
     if (k === 'eip') return acc;
     var d = step.diff[k];
-    return acc + ' ' + k + ': ' + d.prev.hex + ' -> ' + d.curr.hex; 
+    var s = acc;
+    if (idx) s += ',';
+    s += ' ' + k + ': ' + d.prev.hex + ' -> ' + d.curr.hex;
+
+    if (k === 'eflags') s += ' ' + d.curr.flagsString;
+    return s;
   }
-  var diffString = step.diff 
+  var diffString = step.diff
     ? Object.keys(step.diff).reduce(toString, '')
     : ''
 
