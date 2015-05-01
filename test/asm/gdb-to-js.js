@@ -64,32 +64,29 @@ function processLines(lines) {
 
   if (!line) throw new Error('Cannot find test start');
 
-  var last;
+  // first process all lines until the end of the file
   while (line) {
-    // testEnd signals that we saw the test_end label as the next instruction
-    // That means we need to still execute one more instruction to see reg
-    // changes
-    if (last) break;
-    if (res.testEnd) last = true;
-
     res = processFrame(line, lines)
     line = res.nextLine
-
-    // registers we see now actually were changed due
-    // to executing previous instruction, so we correct that
-    if (results[results.length - 1]) {
-      results[results.length - 1].regs = res.regs;
-      results[results.length -1 ].diff = diffRegs(prevRegs, res.regs);
-    }
-
-    prevRegs = res.regs;
     delete res.nextLine;
     results.push(res);
   }
 
+  // We see the results AFTER we step, so the reg values we want
+  // are in the next step
+  for (var i = 0; i < results.length - 1; i++) {
+    results[i].diff = diffRegs(results[i].regs, results[i + 1].regs)
+    results[i].regs = results[i + 1].regs;
+    var end = /^=>.+?_start\.visulator_test_end\+\d+/.test(results[i + 1].line)
+    if (end) {
+      results.length = i + 1;
+      break;
+    }
+  }
+
   var opcodes = collectOpCodes(results);
 
-  var js =  'exports.results = ' + insp(results) + '\n'
+  var js =  'exports.steps = ' + insp(results) + '\n'
           + 'exports.opcodes = ' + insp(opcodes);
 
   fs.writeFileSync(path.join(__dirname, 'inc.js'), js)
@@ -103,11 +100,8 @@ function processFrame(line, lines) {
 
   // line points to **next** instruction while regs point to current
   for (line = lines.shift(); typeof line !== 'undefined'; line = lines.shift()) {
-    var end = /^=>.+?_start\.visulator_test_end\+\d+/.test(line)
-    //if (end) testEnd = true;
-
-    var nextFrame = /^=>.+?_start\.visulator_test_start\+\d+/.test(line)
-    if (nextFrame) break;
+    var frame = /^=>.+?_start\.visulator_test_.+\+\d+/.test(line)
+    if (frame) break;
 
     parts = line.split(/ +/);
     if (parts.length < 3) continue;
