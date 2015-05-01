@@ -20,6 +20,7 @@
     "xtend": "~4.0.0"
   },
   "devDependencies": {
+    "ansicolors": "~0.3.2",
     "browserify": "~9.0.8",
     "tape": "~4.0.0",
     "uglify-js": "~2.4.20",
