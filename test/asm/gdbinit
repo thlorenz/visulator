@@ -1,0 +1,14 @@
+# gdb -nx --batch -x ./gdbinit -f inc | sed 's/^Z//g' | sed 's/\t/  /g' > inc.out 
+
+set disassemble-next-line on
+set disassembly-flavor intel
+
+b _start
+run
+
+while 1
+  info registers
+  stepi
+end
+
+quit
