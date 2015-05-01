@@ -21,5 +21,5 @@ function tableize(step) {
   var opcodes = m[0].trim()
     , inst = step.instruction.replace(opcodes, '').trim();
 
-  return [ colors.green(opcodes), colors.brightBlue(inst), colors.brightBlack(';' + diffString) ];
+  return [ colors.brightBlue(opcodes), colors.green(inst), colors.brightBlack(';' + diffString) ];
 }
