@@ -1,0 +1,387 @@
+{
+  "steps": [
+    {
+      "line": "=> 0x08048061 <_start.gai_s+0>:  40  inc    eax",
+      "address": "0x08048061 <_start.gai_s+0>",
+      "instruction": "40  inc    eax",
+      "diff": {
+        "eax": {
+          "prev": {
+            "hex": "0x0",
+            "decimal": "0"
+          },
+          "curr": {
+            "hex": "0x1",
+            "decimal": "1"
+          }
+        },
+        "eip": {
+          "prev": {
+            "hex": "0x8048061"
+          },
+          "curr": {
+            "hex": "0x8048062"
+          }
+        }
+      },
+      "regs": {
+        "eax": {
+          "hex": "0x1",
+          "decimal": "1"
+        },
+        "ecx": {
+          "hex": "0x0",
+          "decimal": "0"
+        },
+        "edx": {
+          "hex": "0x0",
+          "decimal": "0"
+        },
+        "ebx": {
+          "hex": "0x0",
+          "decimal": "0"
+        },
+        "esp": {
+          "hex": "0xffffbf50"
+        },
+        "ebp": {
+          "hex": "0x0"
+        },
+        "esi": {
+          "hex": "0x0",
+          "decimal": "0"
+        },
+        "edi": {
+          "hex": "0x0",
+          "decimal": "0"
+        },
+        "eip": {
+          "hex": "0x8048062"
+        },
+        "eflags": {
+          "hex": "0x202",
+          "flagsString": "[ IF ]",
+          "flags": {
+            "IF": true
+          }
+        }
+      }
+    },
+    {
+      "line": "=> 0x08048062 <_start.gai_s+1>:  40  inc    eax",
+      "address": "0x08048062 <_start.gai_s+1>",
+      "instruction": "40  inc    eax",
+      "diff": {
+        "eax": {
+          "prev": {
+            "hex": "0x1",
+            "decimal": "1"
+          },
+          "curr": {
+            "hex": "0x2",
+            "decimal": "2"
+          }
+        },
+        "eip": {
+          "prev": {
+            "hex": "0x8048062"
+          },
+          "curr": {
+            "hex": "0x8048063"
+          }
+        }
+      },
+      "regs": {
+        "eax": {
+          "hex": "0x2",
+          "decimal": "2"
+        },
+        "ecx": {
+          "hex": "0x0",
+          "decimal": "0"
+        },
+        "edx": {
+          "hex": "0x0",
+          "decimal": "0"
+        },
+        "ebx": {
+          "hex": "0x0",
+          "decimal": "0"
+        },
+        "esp": {
+          "hex": "0xffffbf50"
+        },
+        "ebp": {
+          "hex": "0x0"
+        },
+        "esi": {
+          "hex": "0x0",
+          "decimal": "0"
+        },
+        "edi": {
+          "hex": "0x0",
+          "decimal": "0"
+        },
+        "eip": {
+          "hex": "0x8048063"
+        },
+        "eflags": {
+          "hex": "0x202",
+          "flagsString": "[ IF ]",
+          "flags": {
+            "IF": true
+          }
+        }
+      }
+    },
+    {
+      "line": "=> 0x08048063 <_start.gai_s+2>:  b8 ff ff ff ff  mov    eax,0xffffffff",
+      "address": "0x08048063 <_start.gai_s+2>",
+      "instruction": "b8 ff ff ff ff  mov    eax,0xffffffff",
+      "diff": {
+        "eax": {
+          "prev": {
+            "hex": "0x2",
+            "decimal": "2"
+          },
+          "curr": {
+            "hex": "0xffffffff",
+            "decimal": "-1"
+          }
+        },
+        "eip": {
+          "prev": {
+            "hex": "0x8048063"
+          },
+          "curr": {
+            "hex": "0x8048068"
+          }
+        }
+      },
+      "regs": {
+        "eax": {
+          "hex": "0xffffffff",
+          "decimal": "-1"
+        },
+        "ecx": {
+          "hex": "0x0",
+          "decimal": "0"
+        },
+        "edx": {
+          "hex": "0x0",
+          "decimal": "0"
+        },
+        "ebx": {
+          "hex": "0x0",
+          "decimal": "0"
+        },
+        "esp": {
+          "hex": "0xffffbf50"
+        },
+        "ebp": {
+          "hex": "0x0"
+        },
+        "esi": {
+          "hex": "0x0",
+          "decimal": "0"
+        },
+        "edi": {
+          "hex": "0x0",
+          "decimal": "0"
+        },
+        "eip": {
+          "hex": "0x8048068"
+        },
+        "eflags": {
+          "hex": "0x202",
+          "flagsString": "[ IF ]",
+          "flags": {
+            "IF": true
+          }
+        }
+      }
+    },
+    {
+      "line": "=> 0x08048068 <_start.gai_s+7>:  40  inc    eax",
+      "address": "0x08048068 <_start.gai_s+7>",
+      "instruction": "40  inc    eax",
+      "diff": {
+        "eax": {
+          "prev": {
+            "hex": "0xffffffff",
+            "decimal": "-1"
+          },
+          "curr": {
+            "hex": "0x0",
+            "decimal": "0"
+          }
+        },
+        "eip": {
+          "prev": {
+            "hex": "0x8048068"
+          },
+          "curr": {
+            "hex": "0x8048069"
+          }
+        },
+        "eflags": {
+          "prev": {
+            "hex": "0x202",
+            "flagsString": "[ IF ]",
+            "flags": {
+              "IF": true
+            }
+          },
+          "curr": {
+            "hex": "0x256",
+            "flagsString": "[ PF AF ZF IF ]",
+            "flags": {
+              "PF": true,
+              "AF": true,
+              "ZF": true,
+              "IF": true
+            }
+          }
+        }
+      },
+      "regs": {
+        "eax": {
+          "hex": "0x0",
+          "decimal": "0"
+        },
+        "ecx": {
+          "hex": "0x0",
+          "decimal": "0"
+        },
+        "edx": {
+          "hex": "0x0",
+          "decimal": "0"
+        },
+        "ebx": {
+          "hex": "0x0",
+          "decimal": "0"
+        },
+        "esp": {
+          "hex": "0xffffbf50"
+        },
+        "ebp": {
+          "hex": "0x0"
+        },
+        "esi": {
+          "hex": "0x0",
+          "decimal": "0"
+        },
+        "edi": {
+          "hex": "0x0",
+          "decimal": "0"
+        },
+        "eip": {
+          "hex": "0x8048069"
+        },
+        "eflags": {
+          "hex": "0x256",
+          "flagsString": "[ PF AF ZF IF ]",
+          "flags": {
+            "PF": true,
+            "AF": true,
+            "ZF": true,
+            "IF": true
+          }
+        }
+      }
+    },
+    {
+      "line": "=> 0x08048069 <_start.gai_s+8>:  40  inc    eax",
+      "address": "0x08048069 <_start.gai_s+8>",
+      "instruction": "40  inc    eax",
+      "diff": {
+        "eax": {
+          "prev": {
+            "hex": "0x0",
+            "decimal": "0"
+          },
+          "curr": {
+            "hex": "0x1",
+            "decimal": "1"
+          }
+        },
+        "eip": {
+          "prev": {
+            "hex": "0x8048069"
+          },
+          "curr": {
+            "hex": "0x804806a"
+          }
+        },
+        "eflags": {
+          "prev": {
+            "hex": "0x256",
+            "flagsString": "[ PF AF ZF IF ]",
+            "flags": {
+              "PF": true,
+              "AF": true,
+              "ZF": true,
+              "IF": true
+            }
+          },
+          "curr": {
+            "hex": "0x202",
+            "flagsString": "[ IF ]",
+            "flags": {
+              "IF": true
+            }
+          }
+        }
+      },
+      "regs": {
+        "eax": {
+          "hex": "0x1",
+          "decimal": "1"
+        },
+        "ecx": {
+          "hex": "0x0",
+          "decimal": "0"
+        },
+        "edx": {
+          "hex": "0x0",
+          "decimal": "0"
+        },
+        "ebx": {
+          "hex": "0x0",
+          "decimal": "0"
+        },
+        "esp": {
+          "hex": "0xffffbf50"
+        },
+        "ebp": {
+          "hex": "0x0"
+        },
+        "esi": {
+          "hex": "0x0",
+          "decimal": "0"
+        },
+        "edi": {
+          "hex": "0x0",
+          "decimal": "0"
+        },
+        "eip": {
+          "hex": "0x804806a"
+        },
+        "eflags": {
+          "hex": "0x202",
+          "flagsString": "[ IF ]",
+          "flags": {
+            "IF": true
+          }
+        }
+      }
+    }
+  ],
+  "opcodes": [
+    "40 ",
+    "40 ",
+    "b8 ff ff ff ff ",
+    "40 ",
+    "40 "
+  ]
+}

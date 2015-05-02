@@ -7,15 +7,15 @@ global _start
 _start:
   nop
 
-.visulator_test_start:
-  inc eax               ; EAX: 0x1 - IF 
-  inc eax               ; EAX: 0x2 - IF 
+.gai_s:
+  inc eax               ; EAX: 0x1 - IF
+  inc eax               ; EAX: 0x2 - IF
 
-  mov eax, 0xffffffff   ; EAX: 0xffffffff - IF 
+  mov eax, 0xffffffff   ; EAX: 0xffffffff - IF
   inc eax               ; EAX: 0x0        - PF AF ZF IF
   inc eax               ; EAX: 0x1        - IF
 
-.visulator_test_end:
+.gai_e:
   mov eax,1
   mov ebx,0
   int 80H

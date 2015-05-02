@@ -1,4 +1,7 @@
-SRCS=$(wildcard *.asm)
+
+DIR:=$(strip $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST)))))
+
+SRCS=$(wildcard $(DIR)/fixtures/*.asm)
 OBJS= $(subst .asm,.o, $(SRCS))
 EXECS=$(subst .asm,, $(SRCS))
 
@@ -22,12 +25,10 @@ LD_EMM=-m elf_i386
 endif
 endif
 
-
-all:
-	@echo "Please run make with a task, i.e.: \"make strlen\""
-	@echo "In case you get any of the below errors, run: \"make clean\""
-	@echo "  - \"multiple definition of '_start'\""
-	@echo "  - \"cannot find entry symbol _start\""
+fixtures: $(EXECS)
+	for f in $(EXECS); do 							\
+		gai-json $$f > $$f.json;	\
+	done
 
 .SUFFIXES: .asm .o
 .asm.o:
@@ -36,17 +37,7 @@ all:
 .o:
 	ld $(LD_EMM) -o $@ $^
 
-# Targets
-inc:
-
-dec:
-# End Targets
-
 clean:
 	@rm -f $(OBJS) $(EXECS) peda-session-*.txt .gdb_history
-
-docs: $(SRCS)
-	node ./tools/gen-api-dox.js && \
-	./tools/node_modules/.bin/doctoc README.md
 
 .PHONY: all clean

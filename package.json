@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "tape test/*.js",
+    "fixtures": "cd test && make clean && make fixtures",
     "docme": "docme README.md -- --configure .jsdocrc",
     "watch": "watchify -d web/js/main.js -o web/js/bundle.js",
     "bundle": "browserify web/js/main.js | uglifyjs >web/js/bundle.js"
