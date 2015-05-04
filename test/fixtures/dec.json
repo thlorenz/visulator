@@ -42,7 +42,7 @@
           "decimal": "0"
         },
         "esp": {
-          "hex": "0xffffbed0"
+          "hex": "0xffffd2a0"
         },
         "ebp": {
           "hex": "0x0"
@@ -109,7 +109,7 @@
           "decimal": "0"
         },
         "esp": {
-          "hex": "0xffffbed0"
+          "hex": "0xffffd2a0"
         },
         "ebp": {
           "hex": "0x0"
@@ -194,7 +194,7 @@
           "decimal": "0"
         },
         "esp": {
-          "hex": "0xffffbed0"
+          "hex": "0xffffd2a0"
         },
         "ebp": {
           "hex": "0x0"
@@ -284,7 +284,7 @@
           "decimal": "0"
         },
         "esp": {
-          "hex": "0xffffbed0"
+          "hex": "0xffffd2a0"
         },
         "ebp": {
           "hex": "0x0"
@@ -374,7 +374,7 @@
           "decimal": "0"
         },
         "esp": {
-          "hex": "0xffffbed0"
+          "hex": "0xffffd2a0"
         },
         "ebp": {
           "hex": "0x0"
@@ -401,6 +401,50 @@
       }
     }
   ],
+  "initialState": {
+    "regs": {
+      "eax": {
+        "hex": "0x0",
+        "decimal": "0"
+      },
+      "ecx": {
+        "hex": "0x0",
+        "decimal": "0"
+      },
+      "edx": {
+        "hex": "0x0",
+        "decimal": "0"
+      },
+      "ebx": {
+        "hex": "0x0",
+        "decimal": "0"
+      },
+      "esp": {
+        "hex": "0xffffd2a0"
+      },
+      "ebp": {
+        "hex": "0x0"
+      },
+      "esi": {
+        "hex": "0x0",
+        "decimal": "0"
+      },
+      "edi": {
+        "hex": "0x0",
+        "decimal": "0"
+      },
+      "eip": {
+        "hex": "0x8048061"
+      },
+      "eflags": {
+        "hex": "0x202",
+        "flagsString": "[ IF ]",
+        "flags": {
+          "IF": true
+        }
+      }
+    }
+  },
   "opcodes": [
     "b8 02 00 00 00 ",
     "48 ",
