@@ -20,7 +20,8 @@ function inspect(obj, nocolor) {
   console.error(require('util').inspect(obj, false, 5, !nocolor));
 }
 
-test('\npushing regs to the stack one after the other starting with empty stack', function (t) {
+// TODO: finish all ops only affecting registers first
+/*test('\npushing regs to the stack one after the other starting with empty stack', function (t) {
   var regs = {
     eax: 0x1, ecx: 0x2, ebx: 0x3, edx: 0x4, esi: 0x5, edi: 0x6
   };
@@ -33,4 +34,4 @@ test('\npushing regs to the stack one after the other starting with empty stack'
   res = run(cu, 5)
   t.deepEqual(res, { esp: 23, stack: [ 6, 5, 31, 27, 3, 4, 2, 1 ] }, 'after 5 more instructions stack and esp as expected')
   t.end()
-})
+})*/

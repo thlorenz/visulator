@@ -42,7 +42,7 @@
           "decimal": "0"
         },
         "esp": {
-          "hex": "0xffffd290"
+          "hex": "0xffffd2a0"
         },
         "ebp": {
           "hex": "0x0"
@@ -109,7 +109,7 @@
           "decimal": "0"
         },
         "esp": {
-          "hex": "0xffffd290"
+          "hex": "0xffffd2a0"
         },
         "ebp": {
           "hex": "0x0"
@@ -176,7 +176,7 @@
           "decimal": "0"
         },
         "esp": {
-          "hex": "0xffffd290"
+          "hex": "0xffffd2a0"
         },
         "ebp": {
           "hex": "0x0"
@@ -243,7 +243,7 @@
           "decimal": "4"
         },
         "esp": {
-          "hex": "0xffffd290"
+          "hex": "0xffffd2a0"
         },
         "ebp": {
           "hex": "0x0"
@@ -275,7 +275,7 @@
       "diff": {
         "esp": {
           "prev": {
-            "hex": "0xffffd290"
+            "hex": "0xffffd2a0"
           },
           "curr": {
             "hex": "0x5"
@@ -534,6 +534,7 @@
     }
   ],
   "initialState": {
+    "entryPoint": "0x08048061",
     "regs": {
       "eax": {
         "hex": "0x0",
@@ -552,7 +553,7 @@
         "decimal": "0"
       },
       "esp": {
-        "hex": "0xffffd290"
+        "hex": "0xffffd2a0"
       },
       "ebp": {
         "hex": "0x0"

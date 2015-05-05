@@ -402,6 +402,7 @@
     }
   ],
   "initialState": {
+    "entryPoint": "0x08048061",
     "regs": {
       "eax": {
         "hex": "0x0",
