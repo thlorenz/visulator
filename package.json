@@ -23,6 +23,7 @@
   "devDependencies": {
     "ansicolors": "~0.3.2",
     "browserify": "~9.0.8",
+    "ocat": "~0.1.0",
     "tape": "~4.0.0",
     "uglify-js": "~2.4.20",
     "watchify": "~3.1.2"
