@@ -1,0 +1,591 @@
+{
+  "steps": [
+    {
+      "line": "=> 0x08048061 <_start.gai_s+0>:  66 b8 01 00  mov    ax,0x1",
+      "address": "0x08048061 <_start.gai_s+0>",
+      "instruction": "66 b8 01 00  mov    ax,0x1",
+      "diff": {
+        "eax": {
+          "prev": {
+            "hex": "0x0",
+            "decimal": "0"
+          },
+          "curr": {
+            "hex": "0x1",
+            "decimal": "1"
+          }
+        },
+        "eip": {
+          "prev": {
+            "hex": "0x8048061"
+          },
+          "curr": {
+            "hex": "0x8048065"
+          }
+        }
+      },
+      "regs": {
+        "eax": {
+          "hex": "0x1",
+          "decimal": "1"
+        },
+        "ecx": {
+          "hex": "0x0",
+          "decimal": "0"
+        },
+        "edx": {
+          "hex": "0x0",
+          "decimal": "0"
+        },
+        "ebx": {
+          "hex": "0x0",
+          "decimal": "0"
+        },
+        "esp": {
+          "hex": "0xffffd290"
+        },
+        "ebp": {
+          "hex": "0x0"
+        },
+        "esi": {
+          "hex": "0x0",
+          "decimal": "0"
+        },
+        "edi": {
+          "hex": "0x0",
+          "decimal": "0"
+        },
+        "eip": {
+          "hex": "0x8048065"
+        },
+        "eflags": {
+          "hex": "0x202",
+          "flagsString": "[ IF ]",
+          "flags": {
+            "IF": true
+          }
+        }
+      }
+    },
+    {
+      "line": "=> 0x08048065 <_start.gai_s+4>:  66 b9 02 00  mov    cx,0x2",
+      "address": "0x08048065 <_start.gai_s+4>",
+      "instruction": "66 b9 02 00  mov    cx,0x2",
+      "diff": {
+        "ecx": {
+          "prev": {
+            "hex": "0x0",
+            "decimal": "0"
+          },
+          "curr": {
+            "hex": "0x2",
+            "decimal": "2"
+          }
+        },
+        "eip": {
+          "prev": {
+            "hex": "0x8048065"
+          },
+          "curr": {
+            "hex": "0x8048069"
+          }
+        }
+      },
+      "regs": {
+        "eax": {
+          "hex": "0x1",
+          "decimal": "1"
+        },
+        "ecx": {
+          "hex": "0x2",
+          "decimal": "2"
+        },
+        "edx": {
+          "hex": "0x0",
+          "decimal": "0"
+        },
+        "ebx": {
+          "hex": "0x0",
+          "decimal": "0"
+        },
+        "esp": {
+          "hex": "0xffffd290"
+        },
+        "ebp": {
+          "hex": "0x0"
+        },
+        "esi": {
+          "hex": "0x0",
+          "decimal": "0"
+        },
+        "edi": {
+          "hex": "0x0",
+          "decimal": "0"
+        },
+        "eip": {
+          "hex": "0x8048069"
+        },
+        "eflags": {
+          "hex": "0x202",
+          "flagsString": "[ IF ]",
+          "flags": {
+            "IF": true
+          }
+        }
+      }
+    },
+    {
+      "line": "=> 0x08048069 <_start.gai_s+8>:  66 ba 03 00  mov    dx,0x3",
+      "address": "0x08048069 <_start.gai_s+8>",
+      "instruction": "66 ba 03 00  mov    dx,0x3",
+      "diff": {
+        "edx": {
+          "prev": {
+            "hex": "0x0",
+            "decimal": "0"
+          },
+          "curr": {
+            "hex": "0x3",
+            "decimal": "3"
+          }
+        },
+        "eip": {
+          "prev": {
+            "hex": "0x8048069"
+          },
+          "curr": {
+            "hex": "0x804806d"
+          }
+        }
+      },
+      "regs": {
+        "eax": {
+          "hex": "0x1",
+          "decimal": "1"
+        },
+        "ecx": {
+          "hex": "0x2",
+          "decimal": "2"
+        },
+        "edx": {
+          "hex": "0x3",
+          "decimal": "3"
+        },
+        "ebx": {
+          "hex": "0x0",
+          "decimal": "0"
+        },
+        "esp": {
+          "hex": "0xffffd290"
+        },
+        "ebp": {
+          "hex": "0x0"
+        },
+        "esi": {
+          "hex": "0x0",
+          "decimal": "0"
+        },
+        "edi": {
+          "hex": "0x0",
+          "decimal": "0"
+        },
+        "eip": {
+          "hex": "0x804806d"
+        },
+        "eflags": {
+          "hex": "0x202",
+          "flagsString": "[ IF ]",
+          "flags": {
+            "IF": true
+          }
+        }
+      }
+    },
+    {
+      "line": "=> 0x0804806d <_start.gai_s+12>:  66 bb 04 00  mov    bx,0x4",
+      "address": "0x0804806d <_start.gai_s+12>",
+      "instruction": "66 bb 04 00  mov    bx,0x4",
+      "diff": {
+        "ebx": {
+          "prev": {
+            "hex": "0x0",
+            "decimal": "0"
+          },
+          "curr": {
+            "hex": "0x4",
+            "decimal": "4"
+          }
+        },
+        "eip": {
+          "prev": {
+            "hex": "0x804806d"
+          },
+          "curr": {
+            "hex": "0x8048071"
+          }
+        }
+      },
+      "regs": {
+        "eax": {
+          "hex": "0x1",
+          "decimal": "1"
+        },
+        "ecx": {
+          "hex": "0x2",
+          "decimal": "2"
+        },
+        "edx": {
+          "hex": "0x3",
+          "decimal": "3"
+        },
+        "ebx": {
+          "hex": "0x4",
+          "decimal": "4"
+        },
+        "esp": {
+          "hex": "0xffffd290"
+        },
+        "ebp": {
+          "hex": "0x0"
+        },
+        "esi": {
+          "hex": "0x0",
+          "decimal": "0"
+        },
+        "edi": {
+          "hex": "0x0",
+          "decimal": "0"
+        },
+        "eip": {
+          "hex": "0x8048071"
+        },
+        "eflags": {
+          "hex": "0x202",
+          "flagsString": "[ IF ]",
+          "flags": {
+            "IF": true
+          }
+        }
+      }
+    },
+    {
+      "line": "=> 0x08048071 <_start.gai_s+16>:  66 bc 05 00  mov    sp,0x5",
+      "address": "0x08048071 <_start.gai_s+16>",
+      "instruction": "66 bc 05 00  mov    sp,0x5",
+      "diff": {
+        "esp": {
+          "prev": {
+            "hex": "0xffffd290"
+          },
+          "curr": {
+            "hex": "0xffff0005"
+          }
+        },
+        "eip": {
+          "prev": {
+            "hex": "0x8048071"
+          },
+          "curr": {
+            "hex": "0x8048075"
+          }
+        }
+      },
+      "regs": {
+        "eax": {
+          "hex": "0x1",
+          "decimal": "1"
+        },
+        "ecx": {
+          "hex": "0x2",
+          "decimal": "2"
+        },
+        "edx": {
+          "hex": "0x3",
+          "decimal": "3"
+        },
+        "ebx": {
+          "hex": "0x4",
+          "decimal": "4"
+        },
+        "esp": {
+          "hex": "0xffff0005"
+        },
+        "ebp": {
+          "hex": "0x0"
+        },
+        "esi": {
+          "hex": "0x0",
+          "decimal": "0"
+        },
+        "edi": {
+          "hex": "0x0",
+          "decimal": "0"
+        },
+        "eip": {
+          "hex": "0x8048075"
+        },
+        "eflags": {
+          "hex": "0x202",
+          "flagsString": "[ IF ]",
+          "flags": {
+            "IF": true
+          }
+        }
+      }
+    },
+    {
+      "line": "=> 0x08048075 <_start.gai_s+20>:  66 bd 06 00  mov    bp,0x6",
+      "address": "0x08048075 <_start.gai_s+20>",
+      "instruction": "66 bd 06 00  mov    bp,0x6",
+      "diff": {
+        "ebp": {
+          "prev": {
+            "hex": "0x0"
+          },
+          "curr": {
+            "hex": "0x6"
+          }
+        },
+        "eip": {
+          "prev": {
+            "hex": "0x8048075"
+          },
+          "curr": {
+            "hex": "0x8048079"
+          }
+        }
+      },
+      "regs": {
+        "eax": {
+          "hex": "0x1",
+          "decimal": "1"
+        },
+        "ecx": {
+          "hex": "0x2",
+          "decimal": "2"
+        },
+        "edx": {
+          "hex": "0x3",
+          "decimal": "3"
+        },
+        "ebx": {
+          "hex": "0x4",
+          "decimal": "4"
+        },
+        "esp": {
+          "hex": "0xffff0005"
+        },
+        "ebp": {
+          "hex": "0x6"
+        },
+        "esi": {
+          "hex": "0x0",
+          "decimal": "0"
+        },
+        "edi": {
+          "hex": "0x0",
+          "decimal": "0"
+        },
+        "eip": {
+          "hex": "0x8048079"
+        },
+        "eflags": {
+          "hex": "0x202",
+          "flagsString": "[ IF ]",
+          "flags": {
+            "IF": true
+          }
+        }
+      }
+    },
+    {
+      "line": "=> 0x08048079 <_start.gai_s+24>:  66 be 07 00  mov    si,0x7",
+      "address": "0x08048079 <_start.gai_s+24>",
+      "instruction": "66 be 07 00  mov    si,0x7",
+      "diff": {
+        "esi": {
+          "prev": {
+            "hex": "0x0",
+            "decimal": "0"
+          },
+          "curr": {
+            "hex": "0x7",
+            "decimal": "7"
+          }
+        },
+        "eip": {
+          "prev": {
+            "hex": "0x8048079"
+          },
+          "curr": {
+            "hex": "0x804807d"
+          }
+        }
+      },
+      "regs": {
+        "eax": {
+          "hex": "0x1",
+          "decimal": "1"
+        },
+        "ecx": {
+          "hex": "0x2",
+          "decimal": "2"
+        },
+        "edx": {
+          "hex": "0x3",
+          "decimal": "3"
+        },
+        "ebx": {
+          "hex": "0x4",
+          "decimal": "4"
+        },
+        "esp": {
+          "hex": "0xffff0005"
+        },
+        "ebp": {
+          "hex": "0x6"
+        },
+        "esi": {
+          "hex": "0x7",
+          "decimal": "7"
+        },
+        "edi": {
+          "hex": "0x0",
+          "decimal": "0"
+        },
+        "eip": {
+          "hex": "0x804807d"
+        },
+        "eflags": {
+          "hex": "0x202",
+          "flagsString": "[ IF ]",
+          "flags": {
+            "IF": true
+          }
+        }
+      }
+    },
+    {
+      "line": "=> 0x0804807d <_start.gai_s+28>:  66 bf 08 00  mov    di,0x8",
+      "address": "0x0804807d <_start.gai_s+28>",
+      "instruction": "66 bf 08 00  mov    di,0x8",
+      "diff": {
+        "edi": {
+          "prev": {
+            "hex": "0x0",
+            "decimal": "0"
+          },
+          "curr": {
+            "hex": "0x8",
+            "decimal": "8"
+          }
+        },
+        "eip": {
+          "prev": {
+            "hex": "0x804807d"
+          },
+          "curr": {
+            "hex": "0x8048081"
+          }
+        }
+      },
+      "regs": {
+        "eax": {
+          "hex": "0x1",
+          "decimal": "1"
+        },
+        "ecx": {
+          "hex": "0x2",
+          "decimal": "2"
+        },
+        "edx": {
+          "hex": "0x3",
+          "decimal": "3"
+        },
+        "ebx": {
+          "hex": "0x4",
+          "decimal": "4"
+        },
+        "esp": {
+          "hex": "0xffff0005"
+        },
+        "ebp": {
+          "hex": "0x6"
+        },
+        "esi": {
+          "hex": "0x7",
+          "decimal": "7"
+        },
+        "edi": {
+          "hex": "0x8",
+          "decimal": "8"
+        },
+        "eip": {
+          "hex": "0x8048081"
+        },
+        "eflags": {
+          "hex": "0x202",
+          "flagsString": "[ IF ]",
+          "flags": {
+            "IF": true
+          }
+        }
+      }
+    }
+  ],
+  "initialState": {
+    "entryPoint": "0x08048061",
+    "regs": {
+      "eax": {
+        "hex": "0x0",
+        "decimal": "0"
+      },
+      "ecx": {
+        "hex": "0x0",
+        "decimal": "0"
+      },
+      "edx": {
+        "hex": "0x0",
+        "decimal": "0"
+      },
+      "ebx": {
+        "hex": "0x0",
+        "decimal": "0"
+      },
+      "esp": {
+        "hex": "0xffffd290"
+      },
+      "ebp": {
+        "hex": "0x0"
+      },
+      "esi": {
+        "hex": "0x0",
+        "decimal": "0"
+      },
+      "edi": {
+        "hex": "0x0",
+        "decimal": "0"
+      },
+      "eip": {
+        "hex": "0x8048061"
+      },
+      "eflags": {
+        "hex": "0x202",
+        "flagsString": "[ IF ]",
+        "flags": {
+          "IF": true
+        }
+      }
+    }
+  },
+  "opcodes": [
+    "66 b8 01 00 ",
+    "66 b9 02 00 ",
+    "66 ba 03 00 ",
+    "66 bb 04 00 ",
+    "66 bc 05 00 ",
+    "66 bd 06 00 ",
+    "66 be 07 00 ",
+    "66 bf 08 00 "
+  ]
+}

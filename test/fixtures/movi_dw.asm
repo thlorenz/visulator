@@ -13,6 +13,8 @@ _start:
   mov ebp, 0x6
   mov esi, 0x7
   mov edi, 0x8
+
+  mov eax, 0x0 ; doesn't affect ZF
 .gai_e:
   mov eax,1
   mov ebx,0
