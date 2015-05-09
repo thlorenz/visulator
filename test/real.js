@@ -21,6 +21,7 @@ function inspect(obj, depth) {
 
 var passing = [
   , 'movi_dw'
+  , 'movi_w'
   , 'movi_b'
 ]
 
