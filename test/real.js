@@ -23,6 +23,7 @@ var passing = [
   , 'movi_dw'
   , 'movi_w'
   , 'movi_b'
+  , 'movr_dw'
 ]
 
 fs

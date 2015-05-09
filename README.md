@@ -23,7 +23,31 @@ A machine emulator that visualizes how each instruction is processed
 </div>
 <dl>
 <dt>
-<h4 class="name" id="cu:: _dec"><span class="type-signature"></span>cu:: _dec<span class="signature">(opcode, asm)</span><span class="type-signature"></span></h4>
+<h4 class="name" id="cu::_regPair"><span class="type-signature"></span>cu::_regPair<span class="type-signature"></span></h4>
+</dt>
+<dd>
+<div class="description">
+<p>Used for any operation that operates on a register pair
+mov, add, etc.</p>
+<p>Same code used no matter of the pair size.</p>
+<p>Operations for smaller pairs just have a different
+opcode than dword operations prefixing the pair.</p>
+</div>
+<dl class="details">
+<dt class="tag-source">Source:</dt>
+<dd class="tag-source"><ul class="dummy">
+<li>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js">lib/x86/cu.js</a>
+<span>, </span>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L202">lineno 202</a>
+</li>
+</ul></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dt>
+<h4 class="name" id="cu::_dec"><span class="type-signature"></span>cu::_dec<span class="signature">(opcode, asm)</span><span class="type-signature"></span></h4>
 </dt>
 <dd>
 <div class="description">
@@ -65,9 +89,9 @@ A machine emulator that visualizes how each instruction is processed
 <dt class="tag-source">Source:</dt>
 <dd class="tag-source"><ul class="dummy">
 <li>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js">x86/cu.js</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js">lib/x86/cu.js</a>
 <span>, </span>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L226">lineno 226</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L305">lineno 305</a>
 </li>
 </ul></dd>
 </dl>
@@ -140,7 +164,7 @@ instead).</p>
 <dt class="tag-source">Source:</dt>
 <dd class="tag-source"><ul class="dummy">
 <li>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js">x86/cu.js</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js">lib/x86/cu.js</a>
 <span>, </span>
 <a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L45">lineno 45</a>
 </li>
@@ -185,9 +209,9 @@ instead).</p>
 <dt class="tag-source">Source:</dt>
 <dd class="tag-source"><ul class="dummy">
 <li>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js">x86/cu.js</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js">lib/x86/cu.js</a>
 <span>, </span>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L201">lineno 201</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L280">lineno 280</a>
 </li>
 </ul></dd>
 </dl>
@@ -413,7 +437,7 @@ we use for the latter.</p>
 <dt class="tag-source">Source:</dt>
 <dd class="tag-source"><ul class="dummy">
 <li>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js">x86/regs.js</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js">lib/x86/regs.js</a>
 <span>, </span>
 <a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js#L42">lineno 42</a>
 </li>
@@ -433,7 +457,7 @@ Used to isolate each flag for flag operations</p>
 <dt class="tag-source">Source:</dt>
 <dd class="tag-source"><ul class="dummy">
 <li>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js">x86/regs.js</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js">lib/x86/regs.js</a>
 <span>, </span>
 <a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js#L124">lineno 124</a>
 </li>
@@ -470,7 +494,7 @@ Leaves all other flags alone.</p>
 <dt class="tag-source">Source:</dt>
 <dd class="tag-source"><ul class="dummy">
 <li>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js">x86/regs.js</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js">lib/x86/regs.js</a>
 <span>, </span>
 <a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js#L226">lineno 226</a>
 </li>
@@ -508,7 +532,7 @@ and then shifts our flag bit into lowest bit.</p>
 <dt class="tag-source">Source:</dt>
 <dd class="tag-source"><ul class="dummy">
 <li>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js">x86/regs.js</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js">lib/x86/regs.js</a>
 <span>, </span>
 <a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js#L183">lineno 183</a>
 </li>
@@ -558,7 +582,7 @@ our flag since that bit is set in the mask.</p>
 <dt class="tag-source">Source:</dt>
 <dd class="tag-source"><ul class="dummy">
 <li>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js">x86/regs.js</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js">lib/x86/regs.js</a>
 <span>, </span>
 <a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js#L197">lineno 197</a>
 </li>
@@ -597,7 +621,7 @@ our flag since that's the only bit in the mask that's <code>0</code>.</p>
 <dt class="tag-source">Source:</dt>
 <dd class="tag-source"><ul class="dummy">
 <li>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js">x86/regs.js</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js">lib/x86/regs.js</a>
 <span>, </span>
 <a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js#L211">lineno 211</a>
 </li>
