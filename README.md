@@ -65,9 +65,9 @@ A machine emulator that visualizes how each instruction is processed
 <dt class="tag-source">Source:</dt>
 <dd class="tag-source"><ul class="dummy">
 <li>
-<a href="https://github.com/thlorenz/visulator/blob/master/x86/cu.js">x86/cu.js</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js">x86/cu.js</a>
 <span>, </span>
-<a href="https://github.com/thlorenz/visulator/blob/master/x86/cu.js#L168">lineno 168</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L226">lineno 226</a>
 </li>
 </ul></dd>
 </dl>
@@ -140,9 +140,9 @@ instead).</p>
 <dt class="tag-source">Source:</dt>
 <dd class="tag-source"><ul class="dummy">
 <li>
-<a href="https://github.com/thlorenz/visulator/blob/master/x86/cu.js">x86/cu.js</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js">x86/cu.js</a>
 <span>, </span>
-<a href="https://github.com/thlorenz/visulator/blob/master/x86/cu.js#L38">lineno 38</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L45">lineno 45</a>
 </li>
 </ul></dd>
 </dl>
@@ -185,9 +185,9 @@ instead).</p>
 <dt class="tag-source">Source:</dt>
 <dd class="tag-source"><ul class="dummy">
 <li>
-<a href="https://github.com/thlorenz/visulator/blob/master/x86/cu.js">x86/cu.js</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js">x86/cu.js</a>
 <span>, </span>
-<a href="https://github.com/thlorenz/visulator/blob/master/x86/cu.js#L143">lineno 143</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L201">lineno 201</a>
 </li>
 </ul></dd>
 </dl>
@@ -234,6 +234,193 @@ instead).</p>
 </div>
 </dd>
 <dt>
+<h4 class="name" id="leBytes"><span class="type-signature"></span>leBytes<span class="signature">(val, <span class="optional">nbytes</span>)</span><span class="type-signature"> &rarr; {Array.&lt;Number>}</span></h4>
+</dt>
+<dd>
+<div class="description">
+<p>Antidote to leVal.
+Converts a value into a buffer of n bytes ordered little endian.</p>
+</div>
+<h5>Parameters:</h5>
+<table class="params">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Argument</th>
+<th class="last">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="name"><code>val</code></td>
+<td class="type">
+<span class="param-type">Number</span>
+</td>
+<td class="attributes">
+</td>
+<td class="description last"><p>value 8, 16 or 32 bits</p></td>
+</tr>
+<tr>
+<td class="name"><code>nbytes</code></td>
+<td class="type">
+<span class="param-type">Number</span>
+</td>
+<td class="attributes">
+&lt;optional><br>
+</td>
+<td class="description last"><p>number of bytes of the value to include (default: 4)</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="details">
+<dt class="tag-source">Source:</dt>
+<dd class="tag-source"><ul class="dummy">
+<li>
+<a href="https://github.com/thlorenz/visulator/blob/master/le-bytes.js">le-bytes.js</a>
+<span>, </span>
+<a href="https://github.com/thlorenz/visulator/blob/master/le-bytes.js#L3">lineno 3</a>
+</li>
+</ul></dd>
+</dl>
+<h5>Returns:</h5>
+<div class="param-desc">
+<p>byte representation of the given @see val</p>
+</div>
+<dl>
+<dt>
+Type
+</dt>
+<dd>
+<span class="param-type">Array.&lt;Number></span>
+</dd>
+</dl>
+</dd>
+<dt>
+<h4 class="name" id="leVal"><span class="type-signature"></span>leVal<span class="signature">(bytes, <span class="optional">nbytes</span>)</span><span class="type-signature"> &rarr; {Number}</span></h4>
+</dt>
+<dd>
+<div class="description">
+<p>Calculates value of little endian ordered bytes.</p>
+<pre><code class="lang-js">leVal([ 0x00, 0x00, 0x00, 0x00 ]) // =&gt; 0x00 00 00 ff (            0)
+leVal([ 0x01, 0x00, 0x00, 0x00 ]) // =&gt; 0x00 00 00 ff (            1)
+leVal([ 0xff, 0x00, 0x00, 0x00 ]) // =&gt; 0x00 00 00 ff (          255)
+leVal([ 0x00, 0x01, 0x00, 0x00 ]) // =&gt; 0x00 00 01 00 (          256)
+leVal([ 0x01, 0x01, 0x00, 0x00 ]) // =&gt; 0x00 00 01 01 (          257)
+leVal([ 0xff, 0x01, 0x00, 0x00 ]) // =&gt; 0x00 00 01 ff (          511)
+leVal([ 0xff, 0xff, 0x00, 0x00 ]) // =&gt; 0x00 00 ff ff (       65,535)
+leVal([ 0x00, 0x00, 0xff, 0x00 ]) // =&gt; 0x00 ff 00 00 (   16,711,680)
+leVal([ 0xff, 0xff, 0xff, 0x00 ]) // =&gt; 0x00 ff ff ff (  16,777,215 )
+leVal([ 0x00, 0x00, 0x00, 0x0f ]) // =&gt; 0x0f 00 00 00 ( 251,658,240 )
+leVal([ 0x00, 0x00, 0x00, 0xf0 ]) // =&gt; 0xf0 00 00 00 (4,026,531,840)
+leVal([ 0x00, 0x00, 0x00, 0xff ]) // =&gt; 0xff 00 00 00 (4,278,190,080)
+leVal([ 0xff, 0xff, 0xff, 0xff ]) // =&gt; 0xff ff ff ff (4,294,967,295)</code></pre>
+</div>
+<h5>Parameters:</h5>
+<table class="params">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Argument</th>
+<th class="last">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="name"><code>bytes</code></td>
+<td class="type">
+<span class="param-type">Array.&lt;Number></span>
+</td>
+<td class="attributes">
+</td>
+<td class="description last"><p>bytes that contain number representation</p></td>
+</tr>
+<tr>
+<td class="name"><code>nbytes</code></td>
+<td class="type">
+<span class="param-type">Number</span>
+</td>
+<td class="attributes">
+&lt;optional><br>
+</td>
+<td class="description last"><p>number of bytes, if not given it is deduced</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="details">
+<dt class="tag-source">Source:</dt>
+<dd class="tag-source"><ul class="dummy">
+<li>
+<a href="https://github.com/thlorenz/visulator/blob/master/le-val.js">le-val.js</a>
+<span>, </span>
+<a href="https://github.com/thlorenz/visulator/blob/master/le-val.js#L3">lineno 3</a>
+</li>
+</ul></dd>
+</dl>
+<h5>Returns:</h5>
+<div class="param-desc">
+<p>number contained in bytes</p>
+</div>
+<dl>
+<dt>
+Type
+</dt>
+<dd>
+<span class="param-type">Number</span>
+</dd>
+</dl>
+</dd>
+<dt>
+<h4 class="name" id="registers::_createRegister"><span class="type-signature"></span>registers::_createRegister<span class="signature">(k)</span><span class="type-signature"></span></h4>
+</dt>
+<dd>
+<div class="description">
+<p>Registers are stored as a 4 byte array in order to allow
+accessing sub registers like ax, ah and al easily.</p>
+<p>The byte order is little endian to be consistent with how things are
+stored in memory and thus be able to use the same store/load functions
+we use for the latter.</p>
+<p>As an example <strong>eax</strong> is stored as follows:</p>
+<pre><code class="lang-js">this._eax = [
+0x0 // al
+, 0x0 // ah
+, 0x0 // lower byte of upper word
+, 0x0 // upper byte of upper word
+]</code></pre>
+<p>Each register part can be accessed via a property, i.e. regs.ah, regs.ax.</p>
+</div>
+<h5>Parameters:</h5>
+<table class="params">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th class="last">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="name"><code>k</code></td>
+<td class="type">
+<span class="param-type">String</span>
+</td>
+<td class="description last"><p>the name of the register</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="details">
+<dt class="tag-source">Source:</dt>
+<dd class="tag-source"><ul class="dummy">
+<li>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js">x86/regs.js</a>
+<span>, </span>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js#L42">lineno 42</a>
+</li>
+</ul></dd>
+</dl>
+</dd>
+<dt>
 <h4 class="name" id="registers::_flagMasks"><span class="type-signature"></span>registers::_flagMasks<span class="signature">()</span><span class="type-signature"></span></h4>
 </dt>
 <dd>
@@ -246,9 +433,9 @@ Used to isolate each flag for flag operations</p>
 <dt class="tag-source">Source:</dt>
 <dd class="tag-source"><ul class="dummy">
 <li>
-<a href="https://github.com/thlorenz/visulator/blob/master/x86/regs.js">x86/regs.js</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js">x86/regs.js</a>
 <span>, </span>
-<a href="https://github.com/thlorenz/visulator/blob/master/x86/regs.js#L25">lineno 25</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js#L124">lineno 124</a>
 </li>
 </ul></dd>
 </dl>
@@ -283,9 +470,9 @@ Leaves all other flags alone.</p>
 <dt class="tag-source">Source:</dt>
 <dd class="tag-source"><ul class="dummy">
 <li>
-<a href="https://github.com/thlorenz/visulator/blob/master/x86/regs.js">x86/regs.js</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js">x86/regs.js</a>
 <span>, </span>
-<a href="https://github.com/thlorenz/visulator/blob/master/x86/regs.js#L127">lineno 127</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js#L226">lineno 226</a>
 </li>
 </ul></dd>
 </dl>
@@ -321,9 +508,9 @@ and then shifts our flag bit into lowest bit.</p>
 <dt class="tag-source">Source:</dt>
 <dd class="tag-source"><ul class="dummy">
 <li>
-<a href="https://github.com/thlorenz/visulator/blob/master/x86/regs.js">x86/regs.js</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js">x86/regs.js</a>
 <span>, </span>
-<a href="https://github.com/thlorenz/visulator/blob/master/x86/regs.js#L84">lineno 84</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js#L183">lineno 183</a>
 </li>
 </ul></dd>
 </dl>
@@ -371,9 +558,9 @@ our flag since that bit is set in the mask.</p>
 <dt class="tag-source">Source:</dt>
 <dd class="tag-source"><ul class="dummy">
 <li>
-<a href="https://github.com/thlorenz/visulator/blob/master/x86/regs.js">x86/regs.js</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js">x86/regs.js</a>
 <span>, </span>
-<a href="https://github.com/thlorenz/visulator/blob/master/x86/regs.js#L98">lineno 98</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js#L197">lineno 197</a>
 </li>
 </ul></dd>
 </dl>
@@ -410,9 +597,9 @@ our flag since that's the only bit in the mask that's <code>0</code>.</p>
 <dt class="tag-source">Source:</dt>
 <dd class="tag-source"><ul class="dummy">
 <li>
-<a href="https://github.com/thlorenz/visulator/blob/master/x86/regs.js">x86/regs.js</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js">x86/regs.js</a>
 <span>, </span>
-<a href="https://github.com/thlorenz/visulator/blob/master/x86/regs.js#L112">lineno 112</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js#L211">lineno 211</a>
 </li>
 </ul></dd>
 </dl>
