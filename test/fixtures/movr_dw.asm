@@ -6,7 +6,7 @@ _start:
   nop
 .gai_s:
   ; movi_dw has to work for this of course
-  mov eax, 0x10 
+  mov eax, 0x10
   mov eax, eax
   mov ecx, eax
   mov edx, eax
@@ -16,7 +16,7 @@ _start:
   mov esi, eax
   mov edi, eax
 
-  mov ecx, 0x20 
+  mov ecx, 0x20
   mov eax, ecx
   mov ecx, ecx
   mov edx, ecx
@@ -26,7 +26,7 @@ _start:
   mov esi, ecx
   mov edi, ecx
 
-  mov edx, 0x30 
+  mov edx, 0x30
   mov eax, edx
   mov ecx, edx
   mov edx, edx
@@ -36,7 +36,7 @@ _start:
   mov esi, edx
   mov edi, edx
 
-  mov ebx, 0x40 
+  mov ebx, 0x40
   mov eax, ebx
   mov ecx, ebx
   mov edx, ebx
@@ -46,7 +46,7 @@ _start:
   mov esi, ebx
   mov edi, ebx
 
-  mov esp, 0x50 
+  mov esp, 0x50
   mov eax, esp
   mov ecx, esp
   mov edx, esp
@@ -56,7 +56,7 @@ _start:
   mov esi, esp
   mov edi, esp
 
-  mov ebp, 0x60 
+  mov ebp, 0x60
   mov eax, ebp
   mov ecx, ebp
   mov edx, ebp
@@ -66,7 +66,7 @@ _start:
   mov esi, ebp
   mov edi, ebp
 
-  mov esi, 0x70 
+  mov esi, 0x70
   mov eax, esi
   mov ecx, esi
   mov edx, esi
@@ -76,7 +76,7 @@ _start:
   mov esi, esi
   mov edi, esi
 
-  mov edi, 0x80 
+  mov edi, 0x80
   mov eax, edi
   mov ecx, edi
   mov edx, edi
