@@ -29,7 +29,8 @@ A machine emulator that visualizes how each instruction is processed
 <div class="description">
 <p>Used for any operation that operates on a register pair
 mov, add, etc.</p>
-<p>Same code used no matter of the pair size.</p>
+<p>Same code used no matter of the pair size dword, word.
+For byte size general puropose regs we use @see _byteRegPair instead.</p>
 <p>Operations for smaller pairs just have a different
 opcode than dword operations prefixing the pair.</p>
 </div>
@@ -39,7 +40,7 @@ opcode than dword operations prefixing the pair.</p>
 <li>
 <a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js">lib/x86/cu.js</a>
 <span>, </span>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L202">lineno 202</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L196">lineno 196</a>
 </li>
 </ul></dd>
 </dl>
@@ -91,7 +92,62 @@ opcode than dword operations prefixing the pair.</p>
 <li>
 <a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js">lib/x86/cu.js</a>
 <span>, </span>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L305">lineno 305</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L367">lineno 367</a>
+</li>
+</ul></dd>
+</dl>
+</dd>
+<dt>
+<h4 class="name" id="cu::_movr"><span class="type-signature"></span>cu::_movr<span class="signature">(opcode, asm, nbytes)</span><span class="type-signature"></span></h4>
+</dt>
+<dd>
+<div class="description">
+<p>Moves one register into another.
+In order to execute this instruction we read the next code byte.
+It tells us which register pairs are affected (i.e. which register
+to move into which).</p>
+<p>We look these up via a table.</p>
+</div>
+<h5>Parameters:</h5>
+<table class="params">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th class="last">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="name"><code>opcode</code></td>
+<td class="type">
+<span class="param-type">Number</span>
+</td>
+<td class="description last"></td>
+</tr>
+<tr>
+<td class="name"><code>asm</code></td>
+<td class="type">
+<span class="param-type">String</span>
+</td>
+<td class="description last"></td>
+</tr>
+<tr>
+<td class="name"><code>nbytes</code></td>
+<td class="type">
+<span class="param-type">Number</span>
+</td>
+<td class="description last"><p>the size of the (sub)register to move</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="details">
+<dt class="tag-source">Source:</dt>
+<dd class="tag-source"><ul class="dummy">
+<li>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js">lib/x86/cu.js</a>
+<span>, </span>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L418">lineno 418</a>
 </li>
 </ul></dd>
 </dl>
@@ -211,7 +267,7 @@ instead).</p>
 <li>
 <a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js">lib/x86/cu.js</a>
 <span>, </span>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L280">lineno 280</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L342">lineno 342</a>
 </li>
 </ul></dd>
 </dl>

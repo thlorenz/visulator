@@ -5,6 +5,7 @@ node_js:
   - "iojs"
 before_install:
   - npm install -g npm@~1.4.6
+  - sudo apt-get update
   - sudo apt-get install gdb
   - sudo apt-get install nasm
   - npm install -g gai

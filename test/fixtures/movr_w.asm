@@ -5,7 +5,7 @@ global _start
 _start:
   nop
 .gai_s:
-  ; movi_dw has to work for this of course
+  ; movi_w has to work for this of course
   mov ax, 0x10
   mov ax, ax
   mov cx, ax
