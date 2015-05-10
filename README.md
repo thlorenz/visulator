@@ -38,9 +38,64 @@ opcode than dword operations prefixing the pair.</p>
 <dt class="tag-source">Source:</dt>
 <dd class="tag-source"><ul class="dummy">
 <li>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js">lib/x86/cu.js</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js">x86/cu.js</a>
 <span>, </span>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L196">lineno 196</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L197">lineno 197</a>
+</li>
+</ul></dd>
+</dl>
+</dd>
+<dt>
+<h4 class="name" id="registers::_flagIndexes"><span class="type-signature"></span>registers::_flagIndexes<span class="type-signature"></span></h4>
+</dt>
+<dd>
+<div class="description">
+<p>Index of each flag in the eflags register.</p>
+</div>
+<dl class="details">
+<dt class="tag-source">Source:</dt>
+<dd class="tag-source"><ul class="dummy">
+<li>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js">x86/regs.js</a>
+<span>, </span>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js#L174">lineno 174</a>
+</li>
+</ul></dd>
+</dl>
+</dd>
+<dt>
+<h4 class="name" id="registers::_flagMasks"><span class="type-signature"></span>registers::_flagMasks<span class="type-signature"></span></h4>
+</dt>
+<dd>
+<div class="description">
+<p>Flags representation for each case of ONE flag set at a time.
+Used to isolate each flag for flag operations</p>
+<p><strong>Flag's Meanings</strong></p>
+<ul>
+<li>CF: <em>carry flag</em> set if the result of an add or shift operation carries out a bit beyond the destination operand;
+otherwise cleared</li>
+<li>PF: <em>parity flag</em> set if the number of 1-bits in the low byte of the result is even,
+otherwise cleared</li>
+<li>AF: <em>adjust flag</em> auxiliary carry used for 4-bit BCD math,
+set when an operation causes a carry out of a 4-bit BCD quantity</li>
+<li>ZF: <em>zero flag</em> set if the result of an operation is zero, otherwise cleared</li>
+<li>TF: <em>trap flag</em> for debuggers, permits operation of a processor in single-step mode</li>
+<li>SF: <em>sign flag</em> set when the sign of the result forces the destination operand to become negative,
+i.e. its most significant bit is set</li>
+<li>IF: <em>interrupt enable flag</em> determines whether or not the CPU
+will handle maskable hardware interrupts</li>
+<li>DF: <em>direction flag</em> controls the left-to-right or right-to-left direction of string processing</li>
+<li>OF: <em>overflow flag</em> set if the result is too large to fit in the destination operand</li>
+</ul>
+<p>see: <a href="http://en.wikipedia.org/wiki/FLAGS_register">wiki flags register</a></p>
+</div>
+<dl class="details">
+<dt class="tag-source">Source:</dt>
+<dd class="tag-source"><ul class="dummy">
+<li>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js">x86/regs.js</a>
+<span>, </span>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js#L124">lineno 124</a>
 </li>
 </ul></dd>
 </dl>
@@ -90,9 +145,9 @@ opcode than dword operations prefixing the pair.</p>
 <dt class="tag-source">Source:</dt>
 <dd class="tag-source"><ul class="dummy">
 <li>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js">lib/x86/cu.js</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js">x86/cu.js</a>
 <span>, </span>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L367">lineno 367</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L272">lineno 272</a>
 </li>
 </ul></dd>
 </dl>
@@ -145,9 +200,9 @@ to move into which).</p>
 <dt class="tag-source">Source:</dt>
 <dd class="tag-source"><ul class="dummy">
 <li>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js">lib/x86/cu.js</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js">x86/cu.js</a>
 <span>, </span>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L418">lineno 418</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L322">lineno 322</a>
 </li>
 </ul></dd>
 </dl>
@@ -220,9 +275,9 @@ instead).</p>
 <dt class="tag-source">Source:</dt>
 <dd class="tag-source"><ul class="dummy">
 <li>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js">lib/x86/cu.js</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js">x86/cu.js</a>
 <span>, </span>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L45">lineno 45</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L46">lineno 46</a>
 </li>
 </ul></dd>
 </dl>
@@ -265,9 +320,9 @@ instead).</p>
 <dt class="tag-source">Source:</dt>
 <dd class="tag-source"><ul class="dummy">
 <li>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js">lib/x86/cu.js</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js">x86/cu.js</a>
 <span>, </span>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L342">lineno 342</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L247">lineno 247</a>
 </li>
 </ul></dd>
 </dl>
@@ -302,9 +357,9 @@ instead).</p>
 <dt class="tag-source">Source:</dt>
 <dd class="tag-source"><ul class="dummy">
 <li>
-<a href="https://github.com/thlorenz/visulator/blob/master/hexstring.js">hexstring.js</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/hexstring.js">hexstring.js</a>
 <span>, </span>
-<a href="https://github.com/thlorenz/visulator/blob/master/hexstring.js#L3">lineno 3</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/hexstring.js#L3">lineno 3</a>
 </li>
 </ul></dd>
 </dl>
@@ -357,9 +412,9 @@ Converts a value into a buffer of n bytes ordered little endian.</p>
 <dt class="tag-source">Source:</dt>
 <dd class="tag-source"><ul class="dummy">
 <li>
-<a href="https://github.com/thlorenz/visulator/blob/master/le-bytes.js">le-bytes.js</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/le-bytes.js">le-bytes.js</a>
 <span>, </span>
-<a href="https://github.com/thlorenz/visulator/blob/master/le-bytes.js#L3">lineno 3</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/le-bytes.js#L3">lineno 3</a>
 </li>
 </ul></dd>
 </dl>
@@ -432,15 +487,82 @@ leVal([ 0xff, 0xff, 0xff, 0xff ]) // =&gt; 0xff ff ff ff (4,294,967,295)</code><
 <dt class="tag-source">Source:</dt>
 <dd class="tag-source"><ul class="dummy">
 <li>
-<a href="https://github.com/thlorenz/visulator/blob/master/le-val.js">le-val.js</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/le-val.js">le-val.js</a>
 <span>, </span>
-<a href="https://github.com/thlorenz/visulator/blob/master/le-val.js#L3">lineno 3</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/le-val.js#L3">lineno 3</a>
 </li>
 </ul></dd>
 </dl>
 <h5>Returns:</h5>
 <div class="param-desc">
 <p>number contained in bytes</p>
+</div>
+<dl>
+<dt>
+Type
+</dt>
+<dd>
+<span class="param-type">Number</span>
+</dd>
+</dl>
+</dd>
+<dt>
+<h4 class="name" id="parity"><span class="type-signature"></span>parity<span class="signature">(v)</span><span class="type-signature"> &rarr; {Number}</span></h4>
+</dt>
+<dd>
+<div class="description">
+<p>Calculates parity of a given number.</p>
+<p>Mostly used to check for serial data communications correctness checking:</p>
+<blockquote>
+<p>parity bit, or check bit is a bit added to the end of a string of binary code that indicates whether the number of
+bits in the string with the value one is even or odd. Parity bits are used as the simplest form of error detecting
+code.</p>
+</blockquote>
+<p><a href="http://en.wikipedia.org/wiki/Parity_bit">wiki</a></p>
+<p>If number is odd, parity is <code>1</code>.
+If number is even, parity is <code>0</code>.</p>
+<p>This method takes around 9 operations, and works for 32-bit words.
+It first shifts and XORs the eight nibbles of the 32-bit value together, leaving the result in the lowest
+nibble of v.
+Next, the binary number 0110 1001 1001 0110 (0x6996 in hex) is shifted to the right by the value
+represented in the lowest nibble of v.
+This number is like a miniature 16-bit parity-table indexed by the low four
+bits in v.
+The result has the parity of v in bit 1, which is masked and returned.</p>
+<p><a href="http://graphics.stanford.edu/~seander/bithacks.html#ParityParallel">bithacks</a></p>
+</div>
+<h5>Parameters:</h5>
+<table class="params">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th class="last">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="name"><code>v</code></td>
+<td class="type">
+<span class="param-type">Number</span>
+</td>
+<td class="description last"><p>32-bit number to get parity for</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="details">
+<dt class="tag-source">Source:</dt>
+<dd class="tag-source"><ul class="dummy">
+<li>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/parity.js">parity.js</a>
+<span>, </span>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/parity.js#L3">lineno 3</a>
+</li>
+</ul></dd>
+</dl>
+<h5>Returns:</h5>
+<div class="param-desc">
+<p><code>1</code> if odd, otherwise <code>0</code></p>
 </div>
 <dl>
 <dt>
@@ -493,29 +615,9 @@ we use for the latter.</p>
 <dt class="tag-source">Source:</dt>
 <dd class="tag-source"><ul class="dummy">
 <li>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js">lib/x86/regs.js</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js">x86/regs.js</a>
 <span>, </span>
 <a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js#L42">lineno 42</a>
-</li>
-</ul></dd>
-</dl>
-</dd>
-<dt>
-<h4 class="name" id="registers::_flagMasks"><span class="type-signature"></span>registers::_flagMasks<span class="signature">()</span><span class="type-signature"></span></h4>
-</dt>
-<dd>
-<div class="description">
-<p>Flags representation for each case of ONE flag set at a time.
-Used to isolate each flag for flag operations</p>
-<p>see: <a href="http://en.wikipedia.org/wiki/FLAGS_register">wiki flags register</a></p>
-</div>
-<dl class="details">
-<dt class="tag-source">Source:</dt>
-<dd class="tag-source"><ul class="dummy">
-<li>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js">lib/x86/regs.js</a>
-<span>, </span>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js#L124">lineno 124</a>
 </li>
 </ul></dd>
 </dl>
@@ -550,9 +652,48 @@ Leaves all other flags alone.</p>
 <dt class="tag-source">Source:</dt>
 <dd class="tag-source"><ul class="dummy">
 <li>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js">lib/x86/regs.js</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js">x86/regs.js</a>
 <span>, </span>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js#L226">lineno 226</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js#L264">lineno 264</a>
+</li>
+</ul></dd>
+</dl>
+</dd>
+<dt>
+<h4 class="name" id="registers::clearFlag"><span class="type-signature"></span>registers::clearFlag<span class="signature">(flag)</span><span class="type-signature"></span></h4>
+</dt>
+<dd>
+<div class="description">
+<p>Clears a given flag</p>
+<p>First we invert the mask for the flag to clear.
+Then we <code>and</code> the flags with that mask which clears
+our flag since that's the only bit in the mask that's <code>0</code>.</p>
+</div>
+<h5>Parameters:</h5>
+<table class="params">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th class="last">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="name"><code>flag</code></td>
+<td class="type">
+</td>
+<td class="description last"></td>
+</tr>
+</tbody>
+</table>
+<dl class="details">
+<dt class="tag-source">Source:</dt>
+<dd class="tag-source"><ul class="dummy">
+<li>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js">x86/regs.js</a>
+<span>, </span>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js#L237">lineno 237</a>
 </li>
 </ul></dd>
 </dl>
@@ -588,9 +729,9 @@ and then shifts our flag bit into lowest bit.</p>
 <dt class="tag-source">Source:</dt>
 <dd class="tag-source"><ul class="dummy">
 <li>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js">lib/x86/regs.js</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js">x86/regs.js</a>
 <span>, </span>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js#L183">lineno 183</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js#L204">lineno 204</a>
 </li>
 </ul></dd>
 </dl>
@@ -638,48 +779,9 @@ our flag since that bit is set in the mask.</p>
 <dt class="tag-source">Source:</dt>
 <dd class="tag-source"><ul class="dummy">
 <li>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js">lib/x86/regs.js</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js">x86/regs.js</a>
 <span>, </span>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js#L197">lineno 197</a>
-</li>
-</ul></dd>
-</dl>
-</dd>
-<dt>
-<h4 class="name" id="registers::unsetFlag"><span class="type-signature"></span>registers::unsetFlag<span class="signature">(flag)</span><span class="type-signature"></span></h4>
-</dt>
-<dd>
-<div class="description">
-<p>Unsets a given flag</p>
-<p>First we invert the mask for the flag to unset.
-Then we <code>and</code> the flags with that mask which unsets
-our flag since that's the only bit in the mask that's <code>0</code>.</p>
-</div>
-<h5>Parameters:</h5>
-<table class="params">
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th class="last">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="name"><code>flag</code></td>
-<td class="type">
-</td>
-<td class="description last"></td>
-</tr>
-</tbody>
-</table>
-<dl class="details">
-<dt class="tag-source">Source:</dt>
-<dd class="tag-source"><ul class="dummy">
-<li>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js">lib/x86/regs.js</a>
-<span>, </span>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js#L211">lineno 211</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js#L218">lineno 218</a>
 </li>
 </ul></dd>
 </dl>

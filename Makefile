@@ -1,7 +1,7 @@
 
 DIR:=$(strip $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST)))))
 
-SRCS=$(wildcard $(DIR)/fixtures/*.asm)
+SRCS=$(wildcard $(DIR)/test/fixtures/*.asm)
 OBJS= $(subst .asm,.o, $(SRCS))
 EXECS=$(subst .asm,, $(SRCS))
 
@@ -29,6 +29,9 @@ fixtures: $(EXECS)
 	for f in $(EXECS); do 							\
 		gai-json $$f > $$f.json;	\
 	done
+
+p-%: fixtures 
+	gai-print $(DIR)/test/fixtures/$(subst p-,,$@)
 
 .SUFFIXES: .asm .o
 .asm.o:

@@ -9,8 +9,8 @@ _start:
   dec eax           ; EAX: 0x1 - IF
   dec eax           ; EAX: 0x0 - PF ZF IF
 
-  dec eax           ; EAX: 0xffffffff - PF AF SF IF
-  dec eax           ; EAX: 0xfffffffe - SF IF
+  ;dec eax           ; EAX: 0xffffffff - PF AF SF IF
+  ;dec eax           ; EAX: 0xfffffffe - SF IF
 
 .gai_e:
   mov eax,1
