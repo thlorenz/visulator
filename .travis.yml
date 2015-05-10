@@ -1,10 +1,11 @@
 language: node_js
 node_js:
-  - "0.10"
   - "0.12"
   - "iojs"
 before_install:
   - npm install -g npm@~1.4.6
-  - wget http://ftp.gnu.org/gnu/gdb/gdb-7.9.tar.xz && tar -xf gdb-7.9.tar.xz && cd gdb-7.9/ && ./configure &&  make && sudo cp gdb/gdb /usr/local/bin/gdb
+  - wget http://ftp.gnu.org/gnu/gdb/gdb-7.9.tar.xz && tar -xf gdb-7.9.tar.xz && cd gdb-7.9/ && ./configure &&  make && sudo cp gdb/gdb /usr/local/bin/gdb && cd ../
   - sudo apt-get install nasm
   - npm install -g gai
+script:
+  - npm test
