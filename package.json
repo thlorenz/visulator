@@ -6,7 +6,7 @@
   "scripts": {
     "test": "npm run fixtures && tape test/*.js",
     "fixtures": "make clean && make fixtures -j8",
-    "docme": "docme README.md -- --configure .jsdocrc",
+    "docme": "docme README.md -- --configure .jsdocrc && sed -e 's-/master/-/master/lib/-g' README.md > fixed.md && mv fixed.md README.md",
     "watch": "watchify -d web/js/main.js -o web/js/bundle.js",
     "bundle": "browserify web/js/main.js | uglifyjs >web/js/bundle.js"
   },
