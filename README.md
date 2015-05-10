@@ -10,6 +10,30 @@ A machine emulator that visualizes how each instruction is processed
 
 ## API and Notes
 
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [cu::_regPair](#cu_regpair)
+- [registers::_flagIndexes](#registers_flagindexes)
+- [registers::_flagMasks](#registers_flagmasks)
+- [cu::_dec(opcode, asm)](#cu_decopcode-asm)
+- [cu::_movr(opcode, asm, nbytes)](#cu_movropcode-asm-nbytes)
+- [cu::next()](#cunext)
+- [cu:_push_reg(opcode)](#cu_push_regopcode)
+- [hexstring(x)](#hexstringx)
+- [leBytes(val, nbytes) → {Array.<Number>}](#lebytesval-nbytes-%E2%86%92-arraynumber)
+- [leVal(bytes, nbytes) → {Number}](#levalbytes-nbytes-%E2%86%92-number)
+- [parity(v) → {Number}](#parityv-%E2%86%92-number)
+- [registers::_createRegister(k)](#registers_createregisterk)
+- [registers::assign(regs)](#registersassignregs)
+- [registers::clearFlag(flag)](#registersclearflagflag)
+- [registers::getFlag(flag) → {Number}](#registersgetflagflag-%E2%86%92-number)
+- [registers::setFlag(flag)](#registerssetflagflag)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+
 <!-- START docme generated API please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN docme TO UPDATE -->
 
