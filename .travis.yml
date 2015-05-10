@@ -5,7 +5,6 @@ node_js:
   - "iojs"
 before_install:
   - npm install -g npm@~1.4.6
-  - sudo apt-get update
-  - sudo apt-get install gdb
+  - wget http://ftp.gnu.org/gnu/gdb/gdb-7.9.tar.xz && tar -xf gdb-7.9.tar.xz && cd gdb-7.9/ && ./configure &&  make && sudo cp gdb/gdb /usr/local/bin/gdb
   - sudo apt-get install nasm
   - npm install -g gai
