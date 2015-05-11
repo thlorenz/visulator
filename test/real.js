@@ -28,6 +28,7 @@ var passing = [
   , 'movr_w'
   , 'movr_b'
   , 'dec_dw'
+  , 'dec_w'
 ]
 
 fs

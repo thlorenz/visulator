@@ -14,22 +14,25 @@ A machine emulator that visualizes how each instruction is processed
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-- [cu::_regPair](#cu_regpair)
-- [registers::_flagIndexes](#registers_flagindexes)
-- [registers::_flagMasks](#registers_flagmasks)
-- [cu::_dec(opcode, asm)](#cu_decopcode-asm)
-- [cu::_movr(opcode, asm, nbytes)](#cu_movropcode-asm-nbytes)
-- [cu::next()](#cunext)
-- [cu:_push_reg(opcode)](#cu_push_regopcode)
-- [hexstring(x)](#hexstringx)
-- [leBytes(val, nbytes) → {Array.<Number>}](#lebytesval-nbytes-%E2%86%92-arraynumber)
-- [leVal(bytes, nbytes) → {Number}](#levalbytes-nbytes-%E2%86%92-number)
-- [parity(v) → {Number}](#parityv-%E2%86%92-number)
-- [registers::_createRegister(k)](#registers_createregisterk)
-- [registers::assign(regs)](#registersassignregs)
-- [registers::clearFlag(flag)](#registersclearflagflag)
-- [registers::getFlag(flag) → {Number}](#registersgetflagflag-%E2%86%92-number)
-- [registers::setFlag(flag)](#registerssetflagflag)
+    - [cu::_regPair](#cu_regpair)
+    - [registers::_flagIndexes](#registers_flagindexes)
+    - [registers::_flagMasks](#registers_flagmasks)
+    - [auxiliary(dst, src) → {Boolean}](#auxiliarydst-src-%E2%86%92-boolean)
+    - [cu::_dec(opcode, asm)](#cu_decopcode-asm)
+    - [cu::_movr(opcode, asm, nbytes)](#cu_movropcode-asm-nbytes)
+    - [cu::next()](#cunext)
+    - [cu:_push_reg(opcode)](#cu_push_regopcode)
+    - [hexstring(x)](#hexstringx)
+    - [leBytes(val, nbytes) → {Array.<Number>}](#lebytesval-nbytes-%E2%86%92-arraynumber)
+    - [leVal(bytes, nbytes) → {Number}](#levalbytes-nbytes-%E2%86%92-number)
+    - [parity(v) → {Number}](#parityv-%E2%86%92-number)
+    - [registers::_createRegister(k)](#registers_createregisterk)
+    - [registers::assign(regs)](#registersassignregs)
+    - [registers::clearFlag(flag)](#registersclearflagflag)
+    - [registers::getFlag(flag) → {Number}](#registersgetflagflag-%E2%86%92-number)
+    - [registers::setFlag(flag)](#registerssetflagflag)
+    - [signed(v, nbytes) → {Boolean}](#signedv-nbytes-%E2%86%92-boolean)
+- [License](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -64,7 +67,7 @@ opcode than dword operations prefixing the pair.</p>
 <li>
 <a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js">x86/cu.js</a>
 <span>, </span>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L197">lineno 197</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L199">lineno 199</a>
 </li>
 </ul></dd>
 </dl>
@@ -127,6 +130,64 @@ will handle maskable hardware interrupts</li>
 </dl>
 <dl>
 <dt>
+<h4 class="name" id="auxiliary"><span class="type-signature"></span>auxiliary<span class="signature">(dst, src)</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
+</dt>
+<dd>
+<div class="description">
+<p>Determnies if a carry or borrow has been generated out of the least significant four bits
+when adding src to dst
+<a href="http://en.wikipedia.org/wiki/Half-carry_flag">wiki</a></p>
+</div>
+<h5>Parameters:</h5>
+<table class="params">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th class="last">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="name"><code>dst</code></td>
+<td class="type">
+<span class="param-type">Number</span>
+</td>
+<td class="description last"><p>destination register</p></td>
+</tr>
+<tr>
+<td class="name"><code>src</code></td>
+<td class="type">
+<span class="param-type">Number</span>
+</td>
+<td class="description last"><p>source register</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="details">
+<dt class="tag-source">Source:</dt>
+<dd class="tag-source"><ul class="dummy">
+<li>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/auxiliary.js">auxiliary.js</a>
+<span>, </span>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/auxiliary.js#L5">lineno 5</a>
+</li>
+</ul></dd>
+</dl>
+<h5>Returns:</h5>
+<div class="param-desc">
+<p><code>true</code> if a <em>half-carry</em> occurs when adding src to dst, otherwise <code>false</code></p>
+</div>
+<dl>
+<dt>
+Type
+</dt>
+<dd>
+<span class="param-type">Boolean</span>
+</dd>
+</dl>
+</dd>
+<dt>
 <h4 class="name" id="cu::_dec"><span class="type-signature"></span>cu::_dec<span class="signature">(opcode, asm)</span><span class="type-signature"></span></h4>
 </dt>
 <dd>
@@ -171,7 +232,7 @@ will handle maskable hardware interrupts</li>
 <li>
 <a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js">x86/cu.js</a>
 <span>, </span>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L272">lineno 272</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L274">lineno 274</a>
 </li>
 </ul></dd>
 </dl>
@@ -226,7 +287,7 @@ to move into which).</p>
 <li>
 <a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js">x86/cu.js</a>
 <span>, </span>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L322">lineno 322</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L345">lineno 345</a>
 </li>
 </ul></dd>
 </dl>
@@ -301,7 +362,7 @@ instead).</p>
 <li>
 <a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js">x86/cu.js</a>
 <span>, </span>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L46">lineno 46</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L48">lineno 48</a>
 </li>
 </ul></dd>
 </dl>
@@ -346,7 +407,7 @@ instead).</p>
 <li>
 <a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js">x86/cu.js</a>
 <span>, </span>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L247">lineno 247</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L249">lineno 249</a>
 </li>
 </ul></dd>
 </dl>
@@ -678,7 +739,7 @@ Leaves all other flags alone.</p>
 <li>
 <a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js">x86/regs.js</a>
 <span>, </span>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js#L264">lineno 264</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js#L262">lineno 262</a>
 </li>
 </ul></dd>
 </dl>
@@ -717,7 +778,7 @@ our flag since that's the only bit in the mask that's <code>0</code>.</p>
 <li>
 <a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js">x86/regs.js</a>
 <span>, </span>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js#L237">lineno 237</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js#L236">lineno 236</a>
 </li>
 </ul></dd>
 </dl>
@@ -808,6 +869,63 @@ our flag since that bit is set in the mask.</p>
 <a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js#L218">lineno 218</a>
 </li>
 </ul></dd>
+</dl>
+</dd>
+<dt>
+<h4 class="name" id="signed"><span class="type-signature"></span>signed<span class="signature">(v, nbytes)</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
+</dt>
+<dd>
+<div class="description">
+<p>Determines if a number is signed, i.e. the most significant bit is set</p>
+<p><a href="http://graphics.stanford.edu/~seander/bithacks.html#CopyIntegerSign">bithacks</a></p>
+</div>
+<h5>Parameters:</h5>
+<table class="params">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th class="last">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="name"><code>v</code></td>
+<td class="type">
+<span class="param-type">Number</span>
+</td>
+<td class="description last"><p>to check for signedness</p></td>
+</tr>
+<tr>
+<td class="name"><code>nbytes</code></td>
+<td class="type">
+<span class="param-type">Number</span>
+</td>
+<td class="description last"><p>size of the value in bytes</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="details">
+<dt class="tag-source">Source:</dt>
+<dd class="tag-source"><ul class="dummy">
+<li>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/signed.js">signed.js</a>
+<span>, </span>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/signed.js#L6">lineno 6</a>
+</li>
+</ul></dd>
+</dl>
+<h5>Returns:</h5>
+<div class="param-desc">
+<p><code>true</code> if number is signed, otherwise <code>false</code></p>
+</div>
+<dl>
+<dt>
+Type
+</dt>
+<dd>
+<span class="param-type">Boolean</span>
+</dd>
 </dl>
 </dd>
 </dl>
