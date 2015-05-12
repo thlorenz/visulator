@@ -30,6 +30,7 @@ var passing = [
   , 'dec_dw'
   , 'dec_w'
   , 'dec_b'
+  , 'inc_dw'
 ]
 
 fs

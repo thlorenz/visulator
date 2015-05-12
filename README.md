@@ -14,25 +14,27 @@ A machine emulator that visualizes how each instruction is processed
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-    - [cu::_byteRegPair](#cu_byteregpair)
-    - [cu::_regPair](#cu_regpair)
-    - [registers::_flagIndexes](#registers_flagindexes)
-    - [registers::_flagMasks](#registers_flagmasks)
-    - [auxiliary(dst, src) → {Boolean}](#auxiliarydst-src-%E2%86%92-boolean)
-    - [cu::_dec(opcode, asm)](#cu_decopcode-asm)
-    - [cu::_movr(opcode, asm, nbytes)](#cu_movropcode-asm-nbytes)
-    - [cu::next()](#cunext)
-    - [cu:_push_reg(opcode)](#cu_push_regopcode)
-    - [hexstring(x)](#hexstringx)
-    - [leBytes(val, nbytes) → {Array.<Number>}](#lebytesval-nbytes-%E2%86%92-arraynumber)
-    - [leVal(bytes, nbytes) → {Number}](#levalbytes-nbytes-%E2%86%92-number)
-    - [parity(v) → {Number}](#parityv-%E2%86%92-number)
-    - [registers::_createRegister(k)](#registers_createregisterk)
-    - [registers::assign(regs)](#registersassignregs)
-    - [registers::clearFlag(flag)](#registersclearflagflag)
-    - [registers::getFlag(flag) → {Number}](#registersgetflagflag-%E2%86%92-number)
-    - [registers::setFlag(flag)](#registerssetflagflag)
-    - [signed(v, nbytes) → {Boolean}](#signedv-nbytes-%E2%86%92-boolean)
+- [cu::_byteRegPair](#cu_byteregpair)
+- [cu::_regPair](#cu_regpair)
+- [registers::_flagIndexes](#registers_flagindexes)
+- [registers::_flagMasks](#registers_flagmasks)
+- [auxiliary(dst, src) → {Boolean}](#auxiliarydst-src-%E2%86%92-boolean)
+- [cu::_dec(opcode, asm, nbytes)](#cu_decopcode-asm-nbytes)
+- [cu::_inc(opcode, asm, nbytes)](#cu_incopcode-asm-nbytes)
+- [cu::_movr(opcode, asm, nbytes)](#cu_movropcode-asm-nbytes)
+- [cu::next()](#cunext)
+- [cu:_push_reg(opcode)](#cu_push_regopcode)
+- [hexstring(x)](#hexstringx)
+- [leBytes(val, nbytes) → {Array.<Number>}](#lebytesval-nbytes-%E2%86%92-arraynumber)
+- [leVal(bytes, nbytes) → {Number}](#levalbytes-nbytes-%E2%86%92-number)
+- [overflow(op1, op2, res, nbytes) → {Boolean}](#overflowop1-op2-res-nbytes-%E2%86%92-boolean)
+- [parity(v) → {Number}](#parityv-%E2%86%92-number)
+- [registers::_createRegister(k)](#registers_createregisterk)
+- [registers::assign(regs)](#registersassignregs)
+- [registers::clearFlag(flag)](#registersclearflagflag)
+- [registers::getFlag(flag) → {Number}](#registersgetflagflag-%E2%86%92-number)
+- [registers::setFlag(flag)](#registerssetflagflag)
+- [signed(v, nbytes) → {Boolean}](#signedv-nbytes-%E2%86%92-boolean)
 - [License](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -66,7 +68,7 @@ the <strong>first</strong> register of the pair.</p>
 <li>
 <a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js">x86/cu.js</a>
 <span>, </span>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L232">lineno 232</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L241">lineno 241</a>
 </li>
 </ul></dd>
 </dl>
@@ -89,7 +91,7 @@ opcode than dword operations prefixing the pair.</p>
 <li>
 <a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js">x86/cu.js</a>
 <span>, </span>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L201">lineno 201</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L210">lineno 210</a>
 </li>
 </ul></dd>
 </dl>
@@ -210,19 +212,11 @@ Type
 </dl>
 </dd>
 <dt>
-<h4 class="name" id="cu::_dec"><span class="type-signature"></span>cu::_dec<span class="signature">(opcode, asm)</span><span class="type-signature"></span></h4>
+<h4 class="name" id="cu::_dec"><span class="type-signature"></span>cu::_dec<span class="signature">(opcode, asm, nbytes)</span><span class="type-signature"></span></h4>
 </dt>
 <dd>
 <div class="description">
 <p>Decrement a register</p>
-<pre><code class="lang-asm">48   dec    eax
-49   dec    ecx
-4a   dec    edx
-4b   dec    ebx
-4c   dec    esp
-4d   dec    ebp
-4e   dec    esi
-4f   dec    edi</code></pre>
 </div>
 <h5>Parameters:</h5>
 <table class="params">
@@ -246,6 +240,12 @@ Type
 </td>
 <td class="description last"></td>
 </tr>
+<tr>
+<td class="name"><code>nbytes</code></td>
+<td class="type">
+</td>
+<td class="description last"></td>
+</tr>
 </tbody>
 </table>
 <dl class="details">
@@ -254,7 +254,55 @@ Type
 <li>
 <a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js">x86/cu.js</a>
 <span>, </span>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L285">lineno 285</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L307">lineno 307</a>
+</li>
+</ul></dd>
+</dl>
+</dd>
+<dt>
+<h4 class="name" id="cu::_inc"><span class="type-signature"></span>cu::_inc<span class="signature">(opcode, asm, nbytes)</span><span class="type-signature"></span></h4>
+</dt>
+<dd>
+<div class="description">
+<p>Inccrement a register</p>
+</div>
+<h5>Parameters:</h5>
+<table class="params">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th class="last">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="name"><code>opcode</code></td>
+<td class="type">
+</td>
+<td class="description last"></td>
+</tr>
+<tr>
+<td class="name"><code>asm</code></td>
+<td class="type">
+</td>
+<td class="description last"></td>
+</tr>
+<tr>
+<td class="name"><code>nbytes</code></td>
+<td class="type">
+</td>
+<td class="description last"></td>
+</tr>
+</tbody>
+</table>
+<dl class="details">
+<dt class="tag-source">Source:</dt>
+<dd class="tag-source"><ul class="dummy">
+<li>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js">x86/cu.js</a>
+<span>, </span>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L294">lineno 294</a>
 </li>
 </ul></dd>
 </dl>
@@ -309,7 +357,7 @@ to move into which).</p>
 <li>
 <a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js">x86/cu.js</a>
 <span>, </span>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L379">lineno 379</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L396">lineno 396</a>
 </li>
 </ul></dd>
 </dl>
@@ -384,7 +432,7 @@ instead).</p>
 <li>
 <a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js">x86/cu.js</a>
 <span>, </span>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L49">lineno 49</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L50">lineno 50</a>
 </li>
 </ul></dd>
 </dl>
@@ -429,7 +477,7 @@ instead).</p>
 <li>
 <a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js">x86/cu.js</a>
 <span>, </span>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L260">lineno 260</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L269">lineno 269</a>
 </li>
 </ul></dd>
 </dl>
@@ -614,20 +662,99 @@ Type
 </dl>
 </dd>
 <dt>
+<h4 class="name" id="overflow"><span class="type-signature"></span>overflow<span class="signature">(op1, op2, res, nbytes)</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
+</dt>
+<dd>
+<div class="description">
+<p>Calculates if an overflow occurred due to the last arithmetic operation.</p>
+<p>The overflow flag is set when the most significant bit (sign bit) is changed
+by adding two numbers with the same sign or subtracting two numbers with opposite signs.</p>
+<p>A negative result out of positive operands (or vice versa) is an overflow.</p>
+<p><a href="http://en.wikipedia.org/wiki/Overflow_flag">overflow flag</a></p>
+</div>
+<h5>Parameters:</h5>
+<table class="params">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th class="last">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="name"><code>op1</code></td>
+<td class="type">
+<span class="param-type">Number</span>
+</td>
+<td class="description last"><p>first operand of the arithmetic operation</p></td>
+</tr>
+<tr>
+<td class="name"><code>op2</code></td>
+<td class="type">
+<span class="param-type">Number</span>
+</td>
+<td class="description last"><p>second operand of the arithmetic operation</p></td>
+</tr>
+<tr>
+<td class="name"><code>res</code></td>
+<td class="type">
+<span class="param-type">Number</span>
+</td>
+<td class="description last"><p>result of the arithmetic operation</p></td>
+</tr>
+<tr>
+<td class="name"><code>nbytes</code></td>
+<td class="type">
+<span class="param-type">Number</span>
+</td>
+<td class="description last"><p>byte sizes of the operands and the result</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="details">
+<dt class="tag-source">Source:</dt>
+<dd class="tag-source"><ul class="dummy">
+<li>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/overflow.js">overflow.js</a>
+<span>, </span>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/overflow.js#L7">lineno 7</a>
+</li>
+</ul></dd>
+</dl>
+<h5>Returns:</h5>
+<div class="param-desc">
+<p><code>true</code> if an overflow occurred, otherwise <code>false</code></p>
+</div>
+<dl>
+<dt>
+Type
+</dt>
+<dd>
+<span class="param-type">Boolean</span>
+</dd>
+</dl>
+</dd>
+<dt>
 <h4 class="name" id="parity"><span class="type-signature"></span>parity<span class="signature">(v)</span><span class="type-signature"> &rarr; {Number}</span></h4>
 </dt>
 <dd>
 <div class="description">
-<p>Calculates parity of a given number.</p>
+<p>Calculates parity of a given number and returns value to set parity flag to.</p>
 <p>Mostly used to check for serial data communications correctness checking:</p>
 <blockquote>
 <p>parity bit, or check bit is a bit added to the end of a string of binary code that indicates whether the number of
 bits in the string with the value one is even or odd. Parity bits are used as the simplest form of error detecting
-code.</p>
+code.
+To determine odd parity if the sum of bits with a value of 1 is odd, the parity bit's value is set to zero.</p>
 </blockquote>
-<p><a href="http://en.wikipedia.org/wiki/Parity_bit">wiki</a></p>
-<p>If number is odd, parity is <code>1</code>.
-If number is even, parity is <code>0</code>.</p>
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/Parity_flag">parity-flag</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Parity_bit">parity-bit</a></li>
+</ul>
+<p><strong>Summary</strong>
+- parity flag is set to <code>0</code> if the number of set bits is odd
+- parity flag is set to <code>1</code> if the number of set bits is even</p>
 <p>This method takes around 9 operations, and works for 32-bit words.
 It first shifts and XORs the eight nibbles of the 32-bit value together, leaving the result in the lowest
 nibble of v.
@@ -637,6 +764,8 @@ This number is like a miniature 16-bit parity-table indexed by the low four
 bits in v.
 The result has the parity of v in bit 1, which is masked and returned.</p>
 <p><a href="http://graphics.stanford.edu/~seander/bithacks.html#ParityParallel">bithacks</a></p>
+<p>x86 parity only applies to the low 8 bits
+<a href="https://github.com/asmblah/jemul8/blob/2e0357116d7a9f500dc21e443e3a2ffde8ee9f8a/js/util.js#L118">x86 caveat</a></p>
 </div>
 <h5>Parameters:</h5>
 <table class="params">
@@ -669,7 +798,7 @@ The result has the parity of v in bit 1, which is masked and returned.</p>
 </dl>
 <h5>Returns:</h5>
 <div class="param-desc">
-<p><code>1</code> if odd, otherwise <code>0</code></p>
+<p><code>0</code> if odd, otherwise <code>1</code></p>
 </div>
 <dl>
 <dt>
