@@ -14,6 +14,7 @@ A machine emulator that visualizes how each instruction is processed
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
+    - [cu::_byteRegPair](#cu_byteregpair)
     - [cu::_regPair](#cu_regpair)
     - [registers::_flagIndexes](#registers_flagindexes)
     - [registers::_flagMasks](#registers_flagmasks)
@@ -50,6 +51,27 @@ A machine emulator that visualizes how each instruction is processed
 </div>
 <dl>
 <dt>
+<h4 class="name" id="cu::_byteRegPair"><span class="type-signature"></span>cu::_byteRegPair<span class="type-signature"></span></h4>
+</dt>
+<dd>
+<div class="description">
+<p>Used for byte sized operations on registers or a register pair.</p>
+<p>In case a register pair is used the names of both registers are provided.
+In case only one register is used, the same code is used except we only use
+the <strong>first</strong> register of the pair.</p>
+</div>
+<dl class="details">
+<dt class="tag-source">Source:</dt>
+<dd class="tag-source"><ul class="dummy">
+<li>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js">x86/cu.js</a>
+<span>, </span>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L232">lineno 232</a>
+</li>
+</ul></dd>
+</dl>
+</dd>
+<dt>
 <h4 class="name" id="cu::_regPair"><span class="type-signature"></span>cu::_regPair<span class="type-signature"></span></h4>
 </dt>
 <dd>
@@ -67,7 +89,7 @@ opcode than dword operations prefixing the pair.</p>
 <li>
 <a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js">x86/cu.js</a>
 <span>, </span>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L199">lineno 199</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L201">lineno 201</a>
 </li>
 </ul></dd>
 </dl>
@@ -232,7 +254,7 @@ Type
 <li>
 <a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js">x86/cu.js</a>
 <span>, </span>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L274">lineno 274</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L285">lineno 285</a>
 </li>
 </ul></dd>
 </dl>
@@ -287,7 +309,7 @@ to move into which).</p>
 <li>
 <a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js">x86/cu.js</a>
 <span>, </span>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L345">lineno 345</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L379">lineno 379</a>
 </li>
 </ul></dd>
 </dl>
@@ -362,7 +384,7 @@ instead).</p>
 <li>
 <a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js">x86/cu.js</a>
 <span>, </span>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L48">lineno 48</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L49">lineno 49</a>
 </li>
 </ul></dd>
 </dl>
@@ -407,7 +429,7 @@ instead).</p>
 <li>
 <a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js">x86/cu.js</a>
 <span>, </span>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L249">lineno 249</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L260">lineno 260</a>
 </li>
 </ul></dd>
 </dl>
