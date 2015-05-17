@@ -25,22 +25,22 @@ _start:
 
   ; below we just go through all regs
   ; to make sure dec is implemented for all of them
-; mov al, 0x1
+  mov al, 0x1
   dec al
-; mov cl, 0x1
+  mov cl, 0x1
   dec cl
-; mov dl, 0x1
+  mov dl, 0x1
   dec dl
-; mov bl, 0x1
+  mov bl, 0x1
   dec bl
 
-;  mov ah, 0x1
+  mov ah, 0x1
   dec ah
-;  mov ch, 0x1
+  mov ch, 0x1
   dec ch
-;  mov dh, 0x1
+  mov dh, 0x1
   dec dh
-;  mov bh, 0x1
+  mov bh, 0x1
   dec bh
 
 .gai_e:
