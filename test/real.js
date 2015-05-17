@@ -19,24 +19,15 @@ function inspect(obj, depth) {
   console.error(require('util').inspect(obj, false, depth || 5, true));
 }
 
-var passing = [
+var filter = [
 /*jshint elision:true*/
-  , 'movi_dw'
-  , 'movi_w'
-  , 'movi_b'
-  , 'movr_dw'
-  , 'movr_w'
-  , 'movr_b'
-  , 'dec_dw'
-  , 'dec_w'
-  , 'dec_b'
-  , 'inc_dw'
+  , 'inc_w'
 ]
 
 fs
   .readdirSync(path.join(__dirname, 'fixtures'))
   .filter(function (x) { return path.extname(x) === '.json' })
-  .filter(function (x) { return ~passing.indexOf(path.basename(x).slice(0, -5)) })
+//  .filter(function (x) { return ~filter.indexOf(path.basename(x).slice(0, -5)) })
   .forEach(runTest)
 
 function parseOpcode(acc, instruction) {
