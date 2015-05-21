@@ -76,8 +76,8 @@ _start:
   mov ecx, 0xfffffffd
   add ecx, 0x3
   add ecx, 0x5
-.gai_e:
 
+.gai_e:
 
   mov eax,1
   mov ebx,0

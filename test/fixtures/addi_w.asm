@@ -23,7 +23,6 @@ _start:
   add bp, 0x0ff1
   add si, 0x0ff1
   add di, 0x0ff1
-.gai_e:
 
   add ax, 0x1
   add cx, 0x1
@@ -33,6 +32,7 @@ _start:
   add bp, 0x1
   add si, 0x1
   add di, 0x1
+.gai_e:
 
   ; the below test boundary cases
   ; to make sure that the correct flags are set
