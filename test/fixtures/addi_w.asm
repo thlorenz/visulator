@@ -35,40 +35,39 @@ _start:
 
   ; the below test boundary cases
   ; to make sure that the correct flags are set
-  mov eax, 0x7fffffff
-  add eax, 0x1          ; sets sign bit and overflows
-  add eax, 0x1          ; keeps sign bit
+  mov ax, 0x7fff
+  add ax, 0x1          ; sets sign bit and overflows
+  add ax, 0x1          ; keeps sign bit
 
-  mov eax, 0xffffffff
-  add eax, 0x1
-  add eax, 0x1
+  mov ax, 0xffff
+  add ax, 0x1
+  add ax, 0x1
 
-  mov ebx, 0x7fffffff
-  add ebx, 0x1          ; sets sign bit and overflows
-  add ebx, 0x1          ; keeps sign bit
+  mov bx, 0x7fff
+  add bx, 0x1          ; sets sign bit and overflows
+  add bx, 0x1          ; keeps sign bit
 
-  mov ebx, 0xffffffff
-  add ebx, 0x1
-  add ebx, 0x1
+  mov bx, 0xffff
+  add bx, 0x1
+  add bx, 0x1
 
-  mov eax, 0x6fffffff
-  add eax, 0x2          ; sets sign bit and overflows
-  add eax, 0x2          ; keeps sign bit
+  mov ax, 0x6fff
+  add ax, 0x2          ; sets sign bit and overflows
+  add ax, 0x2          ; keeps sign bit
 
-  mov eax, 0xfffffffe
-  add eax, 0x2
-  add eax, 0x2
+  mov ax, 0xfffe
+  add ax, 0x2
+  add ax, 0x2
 
-  mov ecx, 0x6fffffff
-  add ecx, 0x2          ; sets sign bit and overflows
-  add ecx, 0x2          ; keeps sign bit
+  mov cx, 0x6fff
+  add cx, 0x2          ; sets sign bit and overflows
+  add cx, 0x2          ; keeps sign bit
 
-  mov ecx, 0xfffffffd
-  add ecx, 0x3
-  add ecx, 0x5
+  mov cx, 0xfffd
+  add cx, 0x3
+  add cx, 0x5
 
 .gai_e:
-
   mov eax,1
   mov ebx,0
   int 80H

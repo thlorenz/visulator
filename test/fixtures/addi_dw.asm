@@ -34,8 +34,6 @@ _start:
   add esi, 0x0fffff01
   add edi, 0x0fffff01
 
-  add eax, 0x1
-  add ecx, 0x1
   add edx, 0x1
   add ebx, 0x1
   add esp, 0x1
@@ -76,7 +74,6 @@ _start:
   mov ecx, 0xfffffffd
   add ecx, 0x3
   add ecx, 0x5
-
 .gai_e:
 
   mov eax,1
