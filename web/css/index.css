@@ -6,11 +6,16 @@ body {
 section.byte-editor { 
   position : absolute !important;
   width    : 50%;
-  height   : 50%;
+  height   : 25%;
+  opacity  : 0.5;
+  border   : solid 1px silver;
+  border-radius: 3px;
 }
 section.asm-editor { 
   position : absolute !important;;
-  top      : 50%;
+  top      : 40%;
   width    : 50%;
-  height   : 50%;
+  height   : 55%;
+  border   : solid 1px silver;
+  border-radius: 3px;
 }

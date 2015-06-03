@@ -46,14 +46,16 @@ function initEditors(instr) {
   require('brace/mode/assembly_x86');
   require('brace/mode/plain_text');
   require('brace/theme/monokai');
+  require('brace/theme/github');
 
   byteEditor = ace.edit('byte-editor');
   byteEditor.getSession().setMode('ace/mode/plain_text');
-  byteEditor.setTheme('ace/theme/monokai');
+  byteEditor.setTheme('ace/theme/github');
   byteEditor.setFontSize(16);
   byteEditor.renderer.setShowGutter(false);
   // todo: refresh on edit of course ;)
   byteEditor.setReadOnly(true);
+  byteEditor.$blockScrolling = Infinity
 
   asmEditor = ace.edit('asm-editor');
   asmEditor.getSession().setMode('ace/mode/assembly_x86');
@@ -61,12 +63,13 @@ function initEditors(instr) {
   asmEditor.setFontSize(14);
   asmEditor.renderer.setShowGutter(false);
   asmEditor.setReadOnly(true);
+  asmEditor.$blockScrolling = Infinity
 }
 
 if (inBrowser) initEditors();
 
-var instr = disasm(samples.strcpy, 0x100);
-var bytes = bytesText(samples.strcpy);
+var instr = disasm(samples.addiw, 0x100);
+var bytes = bytesText(samples.addiw);
 var asm = opsAndAsmText(instr);
 
 if (inBrowser) {
