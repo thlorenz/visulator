@@ -19,3 +19,11 @@ section.asm-editor {
   border   : solid 1px silver;
   border-radius: 3px;
 }
+
+.inline {
+  display: inline;
+}
+
+.stepping {
+  margin-left: 15px;
+}

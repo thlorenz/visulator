@@ -4,6 +4,24 @@ var table = require('text-table');
 var disasm = require('../../lib/disasm');
 var hexstring = require('../../lib/hexstring');
 var samples = require('../../test/fixtures/samples');
+var Program = require('../../lib/program');
+var ENTRY_POINT = 0x100;
+
+var initialState = {
+    entryPoint: ENTRY_POINT
+  , regs: {
+      eax: 0x0
+    , ecx: 0x0
+    , edx: 0x0
+    , ebx: 0x0
+    , esp: 0x0
+    , ebp: 0x0
+    , esi: 0x0
+    , edi: 0x0
+    , eip: ENTRY_POINT
+    , eflags: 0x202
+  }
+}
 
 var inBrowser = typeof window !== 'undefined';
 var asmEditor, byteEditor;
@@ -68,9 +86,42 @@ function initEditors(instr) {
 
 if (inBrowser) initEditors();
 
-var instr = disasm(samples.addiw, 0x100);
+var instr = disasm(samples.addiw, ENTRY_POINT);
 var bytes = bytesText(samples.addiw);
 var asm = opsAndAsmText(instr);
+
+function initProgram() {
+return new Program({
+    memSize    : initialState.regs.esp
+  , entryPoint : initialState.entryPoint
+  , text       : samples.addiw
+  , regs       : initialState.regs
+});
+}
+
+var program = initProgram();
+
+function step(fwd) {
+  var state = program.step();
+  console.dir(state);
+}
+
+function stepFwd() {
+  step(true);
+}
+
+function stepBwd() {
+  step(false);
+}
+
+function initStepping() {
+  var fwd = document.getElementById('step-fwd')
+    , bwd = document.getElementById('step-bwd')
+
+  fwd.onclick = stepFwd;
+  bwd.onclick = stepBwd;
+}
+initStepping();
 
 if (inBrowser) {
   byteEditor.setValue(bytes);
