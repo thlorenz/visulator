@@ -91,19 +91,25 @@ var bytes = bytesText(samples.addiw);
 var asm = opsAndAsmText(instr);
 
 function initProgram() {
-return new Program({
-    memSize    : initialState.regs.esp
-  , entryPoint : initialState.entryPoint
-  , text       : samples.addiw
-  , regs       : initialState.regs
-});
+  return new Program({
+      memSize    : initialState.regs.esp
+    , entryPoint : initialState.entryPoint
+    , text       : samples.addiw
+    , regs       : initialState.regs
+  });
 }
 
 var program = initProgram();
 
 function step(fwd) {
-  var state = program.step();
+  var state;
+  if (fwd) {
+    state = program.step();
+  } else {
+    state = program.stepBack();
+  }
   console.dir(state);
+  console.log(state.regs.eax)
 }
 
 function stepFwd() {
