@@ -5,7 +5,7 @@ body {
 
 section.byte-editor { 
   position : absolute !important;
-  width    : 50%;
+  width    : 45%;
   height   : 25%;
   opacity  : 0.5;
   border   : solid 1px silver;
@@ -14,10 +14,20 @@ section.byte-editor {
 section.asm-editor { 
   position : absolute !important;;
   top      : 40%;
-  width    : 50%;
+  width    : 45%;
   height   : 55%;
   border   : solid 1px silver;
   border-radius: 3px;
+}
+
+section.cpu {
+  position : absolute !important;;
+  top      : 0;
+  left     : 50%;
+  width    : 50%;
+  border   : solid 1px silver;
+  border-radius: 3px;
+  padding: 10px;
 }
 
 .inline {

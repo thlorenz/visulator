@@ -1,11 +1,13 @@
 'use strict';
 var BYTES_ROW_WIDTH = 10
-var table = require('text-table');
-var disasm = require('../../lib/disasm');
-var hexstring = require('../../lib/hexstring');
-var samples = require('../../test/fixtures/samples');
-var Program = require('../../lib/program');
-var ENTRY_POINT = 0x100;
+var table = require('text-table')
+var disasm = require('../../lib/disasm')
+var hexstring = require('../../lib/hexstring')
+var samples = require('../../test/fixtures/samples')
+var Program = require('../../lib/program')
+var Renderer = require('./renderer')
+
+var ENTRY_POINT = 0x100
 
 var initialState = {
     entryPoint: ENTRY_POINT
@@ -99,7 +101,12 @@ function initProgram() {
   });
 }
 
-var program = initProgram();
+function initRenderer(program) {
+  return new Renderer(program._currentCPUState());
+}
+
+var program = initProgram()
+var renderer = initRenderer(program)
 
 function step(fwd) {
   var state;
@@ -110,6 +117,8 @@ function step(fwd) {
   }
   console.dir(state);
   console.log(state.regs.eax)
+
+  renderer.update(state)
 }
 
 function stepFwd() {
