@@ -3,7 +3,7 @@ body {
   color: yellowgreen;
 }
 
-section.byte-editor { 
+section.byte-editor {
   position : absolute !important;
   width    : 45%;
   height   : 25%;
@@ -11,7 +11,7 @@ section.byte-editor {
   border   : solid 1px silver;
   border-radius: 3px;
 }
-section.asm-editor { 
+section.asm-editor {
   position : absolute !important;;
   top      : 40%;
   width    : 45%;
@@ -36,4 +36,8 @@ section.cpu {
 
 .stepping {
   margin-left: 15px;
+}
+
+.test-area {
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHJhZGlhbEdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY3g9IjUwJSIgY3k9IjUwJSIgcj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzhiZjVhNSIgc3RvcC1vcGFjaXR5PSIwLjQiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDAwMDAiLz48L3JhZGlhbEdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
 }

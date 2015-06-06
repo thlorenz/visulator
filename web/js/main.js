@@ -116,7 +116,6 @@ function step(fwd) {
     state = program.stepBack();
   }
   console.dir(state);
-  console.log(state.regs.eax)
 
   renderer.update(state)
 }

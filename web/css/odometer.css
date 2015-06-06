@@ -1,0 +1,79 @@
+/* Compiled from: http://codepen.io/thlorenz/pen/GJmZvO */
+/* Supports binary, decimal and hexadecimal numbers */
+.odometer {
+  display: inline-block;
+  height: 16px;
+  line-height: 16px;
+  color: antiquewhite;
+  font-weight: normal;
+  white-space: normal;
+  font-family: monospace;
+  font-size: 10.66667px;
+  background: #111;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+.odometer > span {
+  display: inline-block;
+  width: 6px;
+  height: 100%;
+  text-align: center;
+  overflow: hidden;
+  margin: 0;
+}
+.odometer > span:before {
+  content: '0123456789ABCDEF';
+  display: block;
+  word-break: break-all;
+  word-break: break-word;
+  -webkit-transition: 0.4s cubic-bezier(0.12, 0.78, 0.52, 1.1);
+          transition: 0.4s cubic-bezier(0.12, 0.78, 0.52, 1.1);
+}
+.odometer > span.d1:before {
+  margin-top: -16px;
+}
+.odometer > span.d2:before {
+  margin-top: -32px;
+}
+.odometer > span.d3:before {
+  margin-top: -48px;
+}
+.odometer > span.d4:before {
+  margin-top: -64px;
+}
+.odometer > span.d5:before {
+  margin-top: -80px;
+}
+.odometer > span.d6:before {
+  margin-top: -96px;
+}
+.odometer > span.d7:before {
+  margin-top: -112px;
+}
+.odometer > span.d8:before {
+  margin-top: -128px;
+}
+.odometer > span.d9:before {
+  margin-top: -144px;
+}
+.odometer > span.d10:before {
+  margin-top: -160px;
+}
+.odometer > span.d11:before {
+  margin-top: -176px;
+}
+.odometer > span.d12:before {
+  margin-top: -192px;
+}
+.odometer > span.d13:before {
+  margin-top: -208px;
+}
+.odometer > span.d14:before {
+  margin-top: -224px;
+}
+.odometer > span.d15:before {
+  margin-top: -240px;
+}
+.odometer > span.d16:before {
+  margin-top: -256px;
+}

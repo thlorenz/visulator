@@ -1,6 +1,23 @@
 <p>registers</p>
 
 {{#each regs}}
-  <p id="reg-{{name}}">{{name}}</p>
-  <p>{{value}}</p>
+  <div id="reg-{{name}}">
+    <!-- value is a four byte array -->
+    <!-- binary -->
+    {{#each value}}
+    <span id="reg-{{../name}}-{{@index}}" class="reg-odometer odometer binary">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </span>
+    {{/each}}
+    <!-- hexadecimal -->
+  </div>
 {{/each}}
+
+<!--vim ft=handlebars -->
