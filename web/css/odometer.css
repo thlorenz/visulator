@@ -4,7 +4,6 @@
   display: inline-block;
   height: 16px;
   line-height: 16px;
-  color: antiquewhite;
   font-weight: normal;
   white-space: normal;
   font-family: monospace;
@@ -12,6 +11,7 @@
   background: #111;
   padding-left: 2px;
   padding-right: 2px;
+  transform: translateY(6px);
 }
 .odometer > span {
   display: inline-block;
@@ -56,24 +56,21 @@
 .odometer > span.d9:before {
   margin-top: -144px;
 }
-.odometer > span.d10:before {
+.odometer > span.da:before {
   margin-top: -160px;
 }
-.odometer > span.d11:before {
+.odometer > span.db:before {
   margin-top: -176px;
 }
-.odometer > span.d12:before {
+.odometer > span.dc:before {
   margin-top: -192px;
 }
-.odometer > span.d13:before {
+.odometer > span.dd:before {
   margin-top: -208px;
 }
-.odometer > span.d14:before {
+.odometer > span.de:before {
   margin-top: -224px;
 }
-.odometer > span.d15:before {
+.odometer > span.df:before {
   margin-top: -240px;
-}
-.odometer > span.d16:before {
-  margin-top: -256px;
 }

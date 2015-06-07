@@ -5,7 +5,7 @@ body {
 
 section.byte-editor {
   position : absolute !important;
-  width    : 45%;
+  width    : 35%;
   height   : 25%;
   opacity  : 0.5;
   border   : solid 1px silver;
@@ -14,7 +14,7 @@ section.byte-editor {
 section.asm-editor {
   position : absolute !important;;
   top      : 40%;
-  width    : 45%;
+  width    : 35%;
   height   : 55%;
   border   : solid 1px silver;
   border-radius: 3px;
@@ -23,8 +23,8 @@ section.asm-editor {
 section.cpu {
   position : absolute !important;;
   top      : 0;
-  left     : 50%;
-  width    : 50%;
+  left     : 40%;
+  width    : 60%;
   border   : solid 1px silver;
   border-radius: 3px;
   padding: 10px;
@@ -38,6 +38,97 @@ section.cpu {
   margin-left: 15px;
 }
 
-.test-area {
-  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHJhZGlhbEdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY3g9IjUwJSIgY3k9IjUwJSIgcj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzhiZjVhNSIgc3RvcC1vcGFjaXR5PSIwLjQiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDAwMDAiLz48L3JhZGlhbEdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
+/* registers */
+
+.binary-heading,
+.hex-heading {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: normal;
+  font-family: monospace;
+  text-align: center;
+  height: 10px;
+  line-height: 10px;
+  background-color: #333;
+  padding: 5px;
+  margin-bottom: 1px;
+}
+.binary-heading {
+  width: 390px;
+}
+.hex-heading {
+  width: 90px;
+}
+
+.heading.binary,
+.heading.hex {
+  width: 93px;
+  display: inline-block;
+  height: 16px;
+  line-height: 16px;
+  font-weight: normal;
+  font-family: monospace;
+  background: #111;
+  padding-left: 2px;
+  padding-right: 2px;
+  white-space: pre;
+  text-align: center;
+}
+.heading.binary {
+  width: 93px;
+  font-size: 10.66667px;
+}
+.heading.hex {
+  width: 18px;
+  font-size: 10.66667px;
+}
+.heading.spacer {
+  margin-right: 18px;
+}
+
+.byte-0 {
+  color: rgb(230, 219, 116);
+}
+.byte-1 {
+  color: rgb(230, 219, 116);
+}
+.byte-2 {
+  color: blue;
+}
+.byte-3 {
+  color: rgb(169, 126, 248);
+}
+
+.reg > label {
+  font-size: 12px;
+  font-family: monospace;
+  font-weight: bold;
+}
+
+.reg.eax > label {
+  color: blue;
+}
+.reg.ebx > label {
+  color: green;
+}
+.reg.ecx > label {
+  color: red;
+}
+.reg.edx > label {
+  color: yellow;
+}
+.reg.esi > label {
+  color: gray;
+}
+.reg.edi > label {
+  color: gainsboro;
+}
+.reg.ebp > label {
+  color: brown;
+}
+.reg.esp > label {
+  color: burlywood;
+}
+.reg.eip > label {
+  color: rgb(161, 161, 235);
 }

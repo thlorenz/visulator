@@ -1,5 +1,5 @@
 'use strict';
-var BYTES_ROW_WIDTH = 10
+var BYTES_ROW_WIDTH = 12 
 var table = require('text-table')
 var disasm = require('../../lib/disasm')
 var hexstring = require('../../lib/hexstring')
@@ -71,7 +71,7 @@ function initEditors(instr) {
   byteEditor = ace.edit('byte-editor');
   byteEditor.getSession().setMode('ace/mode/plain_text');
   byteEditor.setTheme('ace/theme/github');
-  byteEditor.setFontSize(16);
+  byteEditor.setFontSize(14);
   byteEditor.renderer.setShowGutter(false);
   // todo: refresh on edit of course ;)
   byteEditor.setReadOnly(true);
@@ -80,7 +80,7 @@ function initEditors(instr) {
   asmEditor = ace.edit('asm-editor');
   asmEditor.getSession().setMode('ace/mode/assembly_x86');
   asmEditor.setTheme('ace/theme/monokai');
-  asmEditor.setFontSize(14);
+  asmEditor.setFontSize(12);
   asmEditor.renderer.setShowGutter(false);
   asmEditor.setReadOnly(true);
   asmEditor.$blockScrolling = Infinity

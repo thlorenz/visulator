@@ -13,10 +13,10 @@ function binary(num) {
 }
 
 // zero padded hexadecimal number (2 bytes each)
-Handlebars.registerHelper("hexadecimal", function(num) {
+function hex(num) {
   var s = num.toString(16)
   return zeroPad.slice(0, 2 - s.length) + s
-})
+}
 
 Handlebars.registerPartial('_registers', require('../hbs/_registers.hbs'))
 
@@ -33,40 +33,38 @@ proto.update = function update(state) {
   this._updateRegs(state.regs);
 }
 
-proto._initRegs = function _initRegs(regs) {
-  cpuEl.innerHTML = cpu_hbs({
-    regs: [
-      { name: 'eax', value: regs.eax_bytes }
-    , { name: 'ebx', value: regs.ebx_bytes }
-    , { name: 'ecx', value: regs.ecx_bytes }
-    , { name: 'edx', value: regs.edx_bytes }
-    ]
-  })
+proto._createRegEl = function _createRegEl(reg) {
+  var name = reg.name;
+  this['_' + name + '_binary'] = [
+      document.getElementById('reg-' + name + '-0-binary')
+    , document.getElementById('reg-' + name + '-1-binary')
+    , document.getElementById('reg-' + name + '-2-binary')
+    , document.getElementById('reg-' + name + '-3-binary')
+  ]
+  this['_' + name + '_hex'] = [
+      document.getElementById('reg-' + name + '-0-hex')
+    , document.getElementById('reg-' + name + '-1-hex')
+    , document.getElementById('reg-' + name + '-2-hex')
+    , document.getElementById('reg-' + name + '-3-hex')
+  ]
+}
 
-  this._eax_bytes = [
-      document.getElementById('reg-eax-0')
-    , document.getElementById('reg-eax-1')
-    , document.getElementById('reg-eax-2')
-    , document.getElementById('reg-eax-3')
+proto._initRegs = function _initRegs(regs) {
+  var regInfos = [
+      { name: 'eax', value: [ 0, 0, 0, 0 ] }
+    , { name: 'ebx', value: [ 0, 0, 0, 0 ] }
+    , { name: 'ecx', value: [ 0, 0, 0, 0 ] }
+    , { name: 'edx', value: [ 0, 0, 0, 0 ] }
+    , { name: 'esi', value: [ 0, 0, 0, 0 ] }
+    , { name: 'edi', value: [ 0, 0, 0, 0 ] }
+    , { name: 'ebp', value: [ 0, 0, 0, 0 ] }
+    , { name: 'esp', value: [ 0, 0, 0, 0 ] }
+    , { name: 'eip', value: [ 0, 0, 0, 0 ] }
   ]
-  this._ebx_bytes = [
-      document.getElementById('reg-ebx-0')
-    , document.getElementById('reg-ebx-1')
-    , document.getElementById('reg-ebx-2')
-    , document.getElementById('reg-ebx-3')
-  ]
-  this._ecx_bytes = [
-      document.getElementById('reg-ecx-0')
-    , document.getElementById('reg-ecx-1')
-    , document.getElementById('reg-ecx-2')
-    , document.getElementById('reg-ecx-3')
-  ]
-  this._edx_bytes = [
-      document.getElementById('reg-edx-0')
-    , document.getElementById('reg-edx-1')
-    , document.getElementById('reg-edx-2')
-    , document.getElementById('reg-edx-3')
-  ]
+
+  cpuEl.innerHTML = cpu_hbs({ regs: regInfos })
+  regInfos.forEach(this._createRegEl, this);
+  this._updateRegs(regs);
 }
 
 proto._updateOdometerElements = function _updateOdometerElements(odometerEl, s) {
@@ -78,18 +76,33 @@ proto._updateOdometerElements = function _updateOdometerElements(odometerEl, s) 
   }
 }
 
-proto._updateReg = function _updateReg(tgt, src) {
+proto._updateReg = function _updateReg(tgt, src, formatFn) {
   // src is stored in little endian format
   // we visualize it reversed since that reads easier
-  this._updateOdometerElements(tgt[0], binary(src[3]))
-  this._updateOdometerElements(tgt[1], binary(src[2]))
-  this._updateOdometerElements(tgt[2], binary(src[1]))
-  this._updateOdometerElements(tgt[3], binary(src[0]))
+  this._updateOdometerElements(tgt[0], formatFn(src[3]))
+  this._updateOdometerElements(tgt[1], formatFn(src[2]))
+  this._updateOdometerElements(tgt[2], formatFn(src[1]))
+  this._updateOdometerElements(tgt[3], formatFn(src[0]))
 }
 
 proto._updateRegs = function _updateRegs(regs) {
-  this._updateReg(this._eax_bytes, regs.eax_bytes)
-  this._updateReg(this._ebx_bytes, regs.ebx_bytes)
-  this._updateReg(this._ecx_bytes, regs.ecx_bytes)
-  this._updateReg(this._edx_bytes, regs.edx_bytes)
+  this._updateReg(this._eax_binary, regs.eax_bytes, binary)
+  this._updateReg(this._ebx_binary, regs.ebx_bytes, binary)
+  this._updateReg(this._ecx_binary, regs.ecx_bytes, binary)
+  this._updateReg(this._edx_binary, regs.edx_bytes, binary)
+  this._updateReg(this._esi_binary, regs.esi_bytes, binary)
+  this._updateReg(this._edi_binary, regs.edi_bytes, binary)
+  this._updateReg(this._ebp_binary, regs.ebp_bytes, binary)
+  this._updateReg(this._esp_binary, regs.esp_bytes, binary)
+  this._updateReg(this._eip_binary, regs.eip_bytes, binary)
+
+  this._updateReg(this._eax_hex, regs.eax_bytes, hex)
+  this._updateReg(this._ebx_hex, regs.ebx_bytes, hex)
+  this._updateReg(this._ecx_hex, regs.ecx_bytes, hex)
+  this._updateReg(this._edx_hex, regs.edx_bytes, hex)
+  this._updateReg(this._esi_hex, regs.esi_bytes, hex)
+  this._updateReg(this._edi_hex, regs.edi_bytes, hex)
+  this._updateReg(this._ebp_hex, regs.ebp_bytes, hex)
+  this._updateReg(this._esp_hex, regs.esp_bytes, hex)
+  this._updateReg(this._eip_hex, regs.eip_bytes, hex)
 }
