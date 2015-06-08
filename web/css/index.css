@@ -100,10 +100,10 @@ section.cpu {
   color: rgb(230, 219, 116);
 }
 .byte-2 {
-  color: blue;
+  color: rgb(113, 113, 245);
 }
 .byte-3 {
-  color: rgb(169, 126, 248);
+  color: rgb(204, 183, 241);
 }
 
 .reg > label {
@@ -113,7 +113,7 @@ section.cpu {
 }
 
 .reg.eax > label {
-  color: blue;
+  color: rgb(79, 79, 241);
 }
 .reg.ebx > label {
   color: green;
@@ -131,7 +131,7 @@ section.cpu {
   color: gainsboro;
 }
 .reg.ebp > label {
-  color: brown;
+  color: rgb(154, 208, 79);
 }
 .reg.esp > label {
   color: burlywood;
