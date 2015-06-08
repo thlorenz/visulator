@@ -50,6 +50,7 @@ function step(fwd) {
   console.dir(state);
 
   renderer.update(state)
+  asmEditor.highlightInstruction(state.regs.eip);
 }
 
 function stepFwd() {
