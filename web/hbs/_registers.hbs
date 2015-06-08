@@ -1,24 +1,23 @@
-<p>registers</p>
-
-  <!-- heading to show binary/hex -->
-  <div>
-    <span class="heading spacer">&nbsp;</span>
-    <h4 class="binary-heading">binary</h4>
-    <h4 class="hex-heading">hexadecimal</h4>
-  </div>
-  <!-- heading to explain each byte a bit -->
-  <!-- binary -->
+<!-- heading to show binary/hex -->
+<div>
   <span class="heading spacer">&nbsp;</span>
-  <span class="heading binary byte-0">31            </span>
-  <span class="heading binary byte-1">            16</span>
-  <span class="heading binary byte-2">15   (ah)    8</span>
-  <span class="heading binary byte-3">7    (al)    0</span>
+  <h4 class="binary-heading">binary</h4>
+  <h4 class="hex-heading">hexadecimal</h4>
+</div>
+<!-- heading to explain each byte a bit -->
+<!-- binary -->
+<span class="heading spacer">&nbsp;</span>
+<span class="heading binary byte-0">31            </span>
+<span class="heading binary byte-1">            16</span>
+<span class="heading binary byte-2">15   (ah)    8</span>
+<span class="heading binary byte-3">7    (al)    0</span>
 
-  <!-- hex -->
-  <span class="heading hex byte-0"> </span>
-  <span class="heading hex byte-1"> </span>
-  <span class="heading hex byte-2">ah</span>
-  <span class="heading hex byte-3">al</span>
+<!-- hex -->
+<span class="heading hex byte-0"> </span>
+<span class="heading hex byte-1"> </span>
+<span class="heading hex byte-2">ah</span>
+<span class="heading hex byte-3">al</span>
+
 {{#each regs}}
   <div class="reg {{name}}">
     <label>{{name}}</label>

@@ -25,8 +25,8 @@ section.cpu {
   top      : 0;
   left     : 40%;
   width    : 60%;
-  border   : solid 1px silver;
-  border-radius: 3px;
+  /* border   : solid 1px silver; */
+  /* border-radius: 3px; */
   padding: 10px;
 }
 
