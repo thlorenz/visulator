@@ -1,10 +1,10 @@
 'use strict';
 
-var samples         = require('../../test/fixtures/samples')
-var Program         = require('../../lib/program')
-var Renderer        = require('./renderer')
-var asmEditor       = require('./asm-editor')()
-var byteEditor     = require('./byte-editor')()
+var samples    = require('../../test/fixtures/samples')
+var Program    = require('../../lib/program')
+var Renderer   = require('./renderer')
+var asmEditor  = require('./asm-editor')()
+var byteEditor = require('./byte-editor')()
 
 var ENTRY_POINT = 0x100
 
@@ -47,8 +47,6 @@ function step(fwd) {
   } else {
     state = program.stepBack();
   }
-  console.dir(state);
-
   renderer.update(state)
   asmEditor.highlightInstruction(state.regs.eip);
 }
