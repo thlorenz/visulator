@@ -15,7 +15,7 @@
 }
 .odometer > span {
   display: inline-block;
-  width: 6px;
+  width: 6.2px;
   height: 100%;
   text-align: center;
   overflow: hidden;

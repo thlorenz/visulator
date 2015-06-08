@@ -59,14 +59,15 @@ function stepBwd() {
   step(false);
 }
 
-function initStepping() {
-  var fwd = document.getElementById('step-fwd')
-    , bwd = document.getElementById('step-bwd')
+function onstep(pos, fwd) {
+  var currentStep = program.currentStep();
+  if (currentStep === pos) return;
 
-  fwd.onclick = stepFwd;
-  bwd.onclick = stepBwd;
+  if (typeof fwd === 'undefined') fwd = currentStep < pos;
+
+  step(fwd);
+  onstep(pos, fwd)
 }
-initStepping();
 
-asmEditor.init(samples.addiw, ENTRY_POINT);
+asmEditor.init(samples.addiw, ENTRY_POINT, onstep);
 byteEditor.init(samples.addiw);

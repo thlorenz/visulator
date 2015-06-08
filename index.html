@@ -20,15 +20,17 @@
   </head>
   <body>
     <h2>visulator</h2>
-    <div class="test-area"></div>
-    <h4 class="inline">Opcodes and Disassembly</h4>
-    <div class="stepping inline">
-      <input id="step-bwd" type="button" value="<">
-      <input id="step-fwd" type="button" value=">">
+    <div class="content-left">
+      <span>Move the cursor below (↑ or ↓) to step</span>
+      <section id="asm-editor" class="asm-editor"></section>
+      <div class="opcodes">
+        <span>Opcodes</span>
+        <section id="byte-editor" class="byte-editor"></section>
+      </div>
     </div>
-    <section id="byte-editor" class="byte-editor"></section>
-    <section id="asm-editor" class="asm-editor"></section>
-    <section id="cpu" class="cpu"></section>
+    <div class="content-right">
+      <section id="cpu" class="cpu"></section>
+    </div>
 
     <script type="text/javascript" src="web/js/bundle.js"></script>
      <!--<script>

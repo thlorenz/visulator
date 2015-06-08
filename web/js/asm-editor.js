@@ -33,13 +33,23 @@ function AsmEditor() {
 var proto = AsmEditor.prototype;
 module.exports = AsmEditor;
 
-proto.init = function init(opcodes, entryPoint) {
+proto.init = function init(opcodes, entryPoint, onstep) {
+  var self = this;
   var instr = disasm(opcodes, entryPoint);
   this._asm = opsAndAsmText(instr);
   this._asmLines = this._asm.split('\n');
   this._editor.setValue(this._asm);
   this._editor.clearSelection();
   this._editor.gotoLine(1)
+
+  function oncursorChange(e, anchor) {
+    if (self._programaticallyStepping) return;
+    onstep(anchor.row)
+  }
+
+  // allow stepping one or more instructions at a time
+  // by simply changing the cursor position in the editor
+  this._editor.selection.lead.on('change', oncursorChange)
 }
 
 proto.highlightInstruction = function highlightInstruction(address) {
@@ -47,6 +57,8 @@ proto.highlightInstruction = function highlightInstruction(address) {
   for (var i = 0, len = this._asmLines.length; i < len; i++) {
     line = this._asmLines[i]
     addr = parseInt(line.split(' ')[0], 16)
-    if (addr === address) this._editor.gotoLine(i + 1);
+    this._programaticallyStepping = true;
+    if (addr === address) this._editor.gotoLine(i + 1, 0, false);
+    this._programaticallyStepping = false;
   }
 }
