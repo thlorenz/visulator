@@ -4,14 +4,10 @@
   display: inline-block;
   height: 16px;
   line-height: 16px;
-  /* font-weight: bold; */
   white-space: normal;
   font-family: monospace;
   font-size: 10.66667px;
   background: #111;
-  padding-left: 2px;
-  padding-right: 2px;
-  transform: translateY(6px);
 }
 .odometer > span {
   display: inline-block;

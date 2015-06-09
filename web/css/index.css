@@ -46,10 +46,39 @@ section.cpu {
 }
 
 /* registers */
+.registers td,
+.registers th {
+  border: solid 1px rgb(37, 37, 37);
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+.registers td.binary,
+.registers th.binary {
+  width: 95px;
+}
+.registers th.binary.span4 {
+  width: 386.5px;
+  padding-left: 8px;
+  padding-right: 8px;
+  background-color: #333;
+}
+
+.registers td.hex,
+.registers th.hex {
+  width: 18.8px;
+}
+
+.registers th.hex.span4 {
+  width: 81.2px;
+  padding-left: 8px;
+  padding-right: 8px;
+  background-color: #333;
+}
+
 
 .binary-heading,
 .hex-heading {
-  display: inline-block;
   font-size: 12px;
   font-weight: normal;
   font-family: monospace;
@@ -58,39 +87,19 @@ section.cpu {
   line-height: 10px;
   background-color: #333;
   padding: 5px;
-  margin-bottom: 1px;
-}
-.binary-heading {
-  width: 395px;
-}
-.hex-heading {
-  width: 90px;
 }
 
 .heading.binary,
 .heading.hex {
-  width: 93px;
   display: inline-block;
   height: 16px;
   line-height: 16px;
   font-weight: normal;
   font-family: monospace;
   background: #111;
-  padding-left: 2px;
-  padding-right: 2px;
   white-space: pre;
   text-align: center;
-}
-.heading.binary {
-  width: 94.1px;
   font-size: 10.66667px;
-}
-.heading.hex {
-  width: 19px;
-  font-size: 10.66667px;
-}
-.heading.spacer {
-  margin-right: 18px;
 }
 
 .byte-0 {
@@ -106,36 +115,36 @@ section.cpu {
   color: rgb(204, 183, 241);
 }
 
-.reg > label {
+.reg .label {
   font-size: 12px;
   font-family: monospace;
   font-weight: bold;
 }
 
-.reg.eax > label {
+.reg.eax .label {
   color: rgb(79, 79, 241);
 }
-.reg.ebx > label {
+.reg.ebx .label {
   color: green;
 }
-.reg.ecx > label {
+.reg.ecx .label {
   color: red;
 }
-.reg.edx > label {
+.reg.edx .label {
   color: yellow;
 }
-.reg.esi > label {
+.reg.esi .label {
   color: gray;
 }
-.reg.edi > label {
+.reg.edi .label {
   color: gainsboro;
 }
-.reg.ebp > label {
+.reg.ebp .label {
   color: rgb(154, 208, 79);
 }
-.reg.esp > label {
+.reg.esp .label {
   color: burlywood;
 }
-.reg.eip > label {
+.reg.eip .label {
   color: rgb(161, 161, 235);
 }
