@@ -8,7 +8,8 @@
     "fixtures": "make clean && make fixtures -j8",
     "docme": "docme README.md -- --configure .jsdocrc && sed -e 's-/master/-/master/lib/-g' README.md > fixed.md && mv fixed.md README.md",
     "watch": "watchify -d web/js/main.js -o web/js/bundle.js",
-    "bundle": "browserify web/js/main.js | uglifyjs >web/js/bundle.js"
+    "bundle": "browserify web/js/main.js | uglifyjs >web/js/bundle.js",
+    "deploy": "git co gh-pages && git reset HEAD^ --hard && git rebase master && npm run bundle && git add -f web/js/bundle.js && git commit -m 'adding bundle' && git push -f && git co master"
   },
   "browser": {
     "./deps/capstone.js": "./deps/capstone-browser.js"
