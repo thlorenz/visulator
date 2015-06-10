@@ -148,3 +148,47 @@ section.cpu {
 .reg.eip .label {
   color: rgb(161, 161, 235);
 }
+
+/* EFlags */
+
+section.eflags {
+  margin-top: 0px;
+  margin-left: 10px;
+}
+div.eflag {
+  display: inline-block;
+  margin-left: 35px;
+}
+
+.led {
+  margin: 0 auto;
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+
+  opacity: 0.2;
+  -webkit-transition: opacity 200ms linear;
+  -moz-transition: opacity 200ms linear;
+  -o-transition: opacity 200ms linear;
+  -ms-transition: opacity 200ms linear;
+  transition: opacity 200ms linear;
+
+  background: rgba(210,255,82,1);
+  background: -moz-linear-gradient(left, rgba(210,255,82,1) 0%, rgba(145,232,66,1) 100%);
+  background: -webkit-gradient(left top, right top, color-stop(0%, rgba(210,255,82,1)), color-stop(100%, rgba(145,232,66,1)));
+  background: -webkit-linear-gradient(left, rgba(210,255,82,1) 0%, rgba(145,232,66,1) 100%);
+  background: -o-linear-gradient(left, rgba(210,255,82,1) 0%, rgba(145,232,66,1) 100%);
+  background: -ms-linear-gradient(left, rgba(210,255,82,1) 0%, rgba(145,232,66,1) 100%);
+  background: linear-gradient(to right, rgba(210,255,82,1) 0%, rgba(145,232,66,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d2ff52', endColorstr='#91e842', GradientType=1 );
+  border: solid 3px black;
+}
+
+.led.lit {
+  opacity: 1.0;
+  -webkit-transition: opacity 200ms linear;
+  -moz-transition: opacity 200ms linear;
+  -o-transition: opacity 200ms linear;
+  -ms-transition: opacity 200ms linear;
+  transition: opacity 200ms linear;
+}

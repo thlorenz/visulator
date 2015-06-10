@@ -1,6 +1,7 @@
 'use strict';
 
 var Handlebars = require('hbsfy/runtime')
+  , xtend = require('xtend')
   , cpu_hbs = require('../hbs/cpu.hbs')
   , cpuEl = document.getElementById('cpu')
 
@@ -49,7 +50,12 @@ proto._createRegEl = function _createRegEl(reg) {
   ]
 }
 
+proto._createFlagEl = function _createFlagEl(flag) {
+  this._flagEls[flag.id] = document.getElementById(flag.id)
+}
+
 proto._initRegs = function _initRegs(regs) {
+  var self = this;
   var regInfos = [
       { name: 'eax', value: [ 0, 0, 0, 0 ] }
     , { name: 'ebx', value: [ 0, 0, 0, 0 ] }
@@ -62,8 +68,24 @@ proto._initRegs = function _initRegs(regs) {
     , { name: 'eip', value: [ 0, 0, 0, 0 ] }
   ]
 
-  cpuEl.innerHTML = cpu_hbs({ regs: regInfos })
+  function toFlagInfo(acc, k) {
+    var flag = self._flagsMeta[k]
+    acc.push({
+        display     : k
+      , id          : k.toLowerCase()
+      , name        : flag.name
+      , description : flag.description
+    })
+    return acc
+  }
+  var flagInfos = Object.keys(this._flagsMeta).reduce(toFlagInfo, []);
+
+  cpuEl.innerHTML = cpu_hbs({ regs: regInfos, eflags: flagInfos })
+
   regInfos.forEach(this._createRegEl, this);
+
+  this._flagEls = {}
+  flagInfos.forEach(this._createFlagEl, this)
   this._updateRegs(regs);
 }
 
@@ -105,4 +127,44 @@ proto._updateRegs = function _updateRegs(regs) {
   this._updateReg(this._ebp_hex, regs.ebp_bytes, hex)
   this._updateReg(this._esp_hex, regs.esp_bytes, hex)
   this._updateReg(this._eip_hex, regs.eip_bytes, hex)
+
+  this._updateEFlags(regs.eflags_hash)
 }
+
+proto._updateFlag = function _updateFlag(k) {
+  var id = k.toLowerCase()
+    , el = this._flagEls[id]
+
+  if (!!this.__eflags_hash[k]) {
+    el.children[1].classList.add('lit');
+  } else {
+    el.children[1].classList.remove('lit');
+  }
+}
+
+proto._updateEFlags = function _updateEFlags(eflags_hash) {
+  this.__eflags_hash = eflags_hash
+  Object.keys(this._flagsMeta).forEach(this._updateFlag, this);
+}
+
+proto._flagsMeta = {
+    CF: { name: 'Carry Flag',
+          description: 'set if the result of an add or shift operation carries out a bit beyond the destination operand; otherwise cleared' }
+  , PF: { name: 'Parity Flag',
+          description: 'set if the number of 1-bits in the low byte of the result is even, otherwise cleared' }
+  , AF: { name: 'Adjust Flag',
+          description: 'auxiliary carry used for 4-bit BCD math, set when an operation causes a carry out of a 4-bit BCD quantity' }
+  , ZF: { name: 'Zero Flag',
+          description: 'set if the result of an operation is zero, otherwise cleared' }
+  , TF: { name: 'Trap Flag',
+          description: 'for debuggers, permits operation of a processor in single-step mode' }
+  , SF: { name: 'Sign Flag',
+          description: 'set when the sign of the result forces the destination operand to become negative, i.e. its most significant bit is set' }
+  , IF: { name: 'Interrupt Enable Flag',
+          description: 'determines whether or not the CPU will handle maskable hardware interrupts' }
+  , DF: { name: 'Direction Flag',
+          description: 'controls the left-to-right or right-to-left direction of string processing' }
+  , OF: { name: 'Overflow Flag',
+          description: 'set if the result is too large to fit in the destination operand' }
+}
+
