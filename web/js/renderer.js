@@ -20,7 +20,6 @@ function hex(num) {
 }
 
 Handlebars.registerPartial('_registers', require('../hbs/_registers.hbs'))
-Handlebars.registerPartial('_documentation', require('../hbs/_documentation.hbs'))
 
 function Renderer(initialState) {
   if (!(this instanceof Renderer)) return new Renderer(initialState);
