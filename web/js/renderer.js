@@ -20,6 +20,7 @@ function hex(num) {
 }
 
 Handlebars.registerPartial('_registers', require('../hbs/_registers.hbs'))
+Handlebars.registerPartial('_documentation', require('../hbs/_documentation.hbs'))
 
 function Renderer(initialState) {
   if (!(this instanceof Renderer)) return new Renderer(initialState);
@@ -33,6 +34,9 @@ module.exports = Renderer;
 proto.update = function update(state) {
   this._updateRegs(state.regs);
 }
+
+// assign this to get ondocsRequested event
+proto.ondocsRequested = function ondocsRequested() { }
 
 proto._createRegEl = function _createRegEl(reg) {
   var name = reg.name;
@@ -50,8 +54,20 @@ proto._createRegEl = function _createRegEl(reg) {
   ]
 }
 
+function findParentWithDocs(el) {
+  if (el === document.body) return null;
+  return !!el.dataset.description ? el : findParentWithDocs(el.parentElement)
+}
+
 proto._createFlagEl = function _createFlagEl(flag) {
-  this._flagEls[flag.id] = document.getElementById(flag.id)
+  var el = this._flagEls[flag.id] = document.getElementById(flag.id)
+  var self = this;
+  el.onclick = function onclick(e) { 
+    var dataEl = findParentWithDocs(e.target)
+    if (!dataEl) return;
+    var docs = { heading: dataEl.dataset.name, text: dataEl.dataset.description }
+    self.ondocsRequested(docs)
+  }
 }
 
 proto._initRegs = function _initRegs(regs) {

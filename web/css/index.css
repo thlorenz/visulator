@@ -158,6 +158,10 @@ section.eflags {
 div.eflag {
   display: inline-block;
   margin-left: 35px;
+  cursor: pointer;
+}
+div.eflag:hover {
+  color: antiquewhite;
 }
 
 .led {
@@ -191,4 +195,27 @@ div.eflag {
   -o-transition: opacity 200ms linear;
   -ms-transition: opacity 200ms linear;
   transition: opacity 200ms linear;
+}
+
+/* documentation */
+
+.docs {
+  background: antiquewhite;
+  width: 504px;
+  height: 120px;
+  margin-left: 12px;
+  border: solid #333 5px;
+  border-radius: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: black;
+  font-family: 'PT Serif', Georgia, Times, 'Times New Roman', serif;
+  font-size: 14px;
+  overflow-y: scroll;
+}
+
+.docs > h4 {
+  text-decoration: underline;
+  font-size: 16px;
+  font-weight: bold;
 }

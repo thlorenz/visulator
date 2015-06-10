@@ -63,8 +63,9 @@
 <!-- EFlags -->
 <section class="eflags">
   {{#each eflags}}
-  <div id="{{this.id}}" class="eflag {{this.id}}"
-         data-name="{{this.name}}" data-description="{{this.description}}">
+  <div  id="{{this.id}}" class="eflag {{this.id}}" 
+        title="{{this.name}}, click for more details"
+        data-name="{{this.name}}" data-description="{{this.description}}">
       <p>{{this.display}}</p>
       <p class="led">
       </p>

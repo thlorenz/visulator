@@ -1,5 +1,6 @@
 'use strict';
 
+var docs_hbs = require('../hbs/documentation.hbs')
 var samples    = require('../../test/fixtures/samples')
 var Program    = require('../../lib/program')
 var Renderer   = require('./renderer')
@@ -37,8 +38,21 @@ function initRenderer(program) {
   return new Renderer(program._currentCPUState());
 }
 
+function initDocs(renderer) {
+  var docsEl = document.getElementById('docs')
+  docsEl.innerHTML = docs_hbs({
+      heading: 'Help'
+    , text: 'Click on elements (like flags) to show details here.'
+  })
+  function renderDocs(docs) {
+    docsEl.innerHTML = docs_hbs(docs)
+  }
+  renderer.ondocsRequested = renderDocs;
+}
+
 var program = initProgram()
 var renderer = initRenderer(program)
+initDocs(renderer)
 
 function step(fwd) {
   var state;
