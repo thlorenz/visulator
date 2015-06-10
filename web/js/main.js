@@ -29,7 +29,7 @@ function initProgram() {
   return new Program({
       memSize    : initialState.regs.esp
     , entryPoint : initialState.entryPoint
-    , text       : samples.addiw
+    , text       : samples.mix_01
     , regs       : initialState.regs
   });
 }
@@ -83,5 +83,5 @@ function onstep(pos, fwd) {
   onstep(pos, fwd)
 }
 
-asmEditor.init(samples.addiw, ENTRY_POINT, onstep);
-byteEditor.init(samples.addiw);
+asmEditor.init(samples.mix_01, ENTRY_POINT, onstep);
+byteEditor.init(samples.mix_01);
