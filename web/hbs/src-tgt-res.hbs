@@ -1,0 +1,44 @@
+<table>
+<tbody>
+  <tr class="tgt">
+  {{#each tgt}}
+    <td data-bit="{{this}}">{{this}}</td>
+  {{/each}}
+  </tr>
+  
+  <tr class="src">
+  {{#each src}}
+    <td class="src" data-bit="{{this}}">{{this}}</td>
+  {{/each}}
+  </tr>
+
+  <tr class="res">
+  {{#each src}}
+    {{> _binary-digit }}
+  {{/each}}
+</tbody>
+</table>
+
+
+{{!--
+bits = [ 
+    { tgt: 0, src: 1 }
+  , { tgt: 1, src: 1 }
+  , { tgt: 1, src: 0 }
+  , { tgt: 0, src: 0 }
+]
+
+bits = {
+  tgt: [ 0, 1, 1, 0 ],
+  src: [ 1, 1, 0, 0 ]
+}
+
+==>
+
+  0110
++ 1100
+  ----
+  ????
+
+--}}
+

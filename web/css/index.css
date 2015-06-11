@@ -219,3 +219,24 @@ div.eflag:hover {
   font-size: 16px;
   font-weight: bold;
 }
+
+/* binary digit */
+
+.binary-digit > span {
+  display: inline-block;
+  visibility: none;
+  opacity: 0.0;
+}
+.binary-digit > .b1 {
+  margin-left: -12px;
+}
+.binary-digit.b0 > .b0,
+.binary-digit.b1 > .b1 {
+  visibility: visible;
+  opacity: 1.0;
+  -webkit-transition: opacity 400ms linear;
+  -moz-transition: opacity 400ms linear;
+  -o-transition: opacity 400ms linear;
+  -ms-transition: opacity 400ms linear;
+  transition: opacity 400ms linear;
+}

@@ -4,6 +4,7 @@ var docs_hbs = require('../hbs/documentation.hbs')
 var samples    = require('../../test/fixtures/samples')
 var Program    = require('../../lib/program')
 var Renderer   = require('./renderer')
+var Adder = require('./adder')
 var asmEditor  = require('./asm-editor')()
 var byteEditor = require('./byte-editor')()
 
@@ -24,6 +25,17 @@ var initialState = {
     , eflags: 0x202
   }
 }
+
+var docsEl = document.getElementById('docs')
+var adder = new Adder(docsEl)
+adder.init({ tgt: [ 0, 0, 0, 1,   1, 0, 1, 1 ]
+           , src: [ 0, 1, 0, 0,   1, 1, 0, 1 ] })
+
+function next() {
+  adder.nextBit()
+}
+setInterval(next, 500)
+return
 
 function initProgram() {
   return new Program({
@@ -85,3 +97,4 @@ function onstep(pos, fwd) {
 
 asmEditor.init(samples.mix_01, ENTRY_POINT, onstep);
 byteEditor.init(samples.mix_01);
+
