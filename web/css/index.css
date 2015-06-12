@@ -220,6 +220,42 @@ div.eflag:hover {
   font-weight: bold;
 }
 
+/* src-tgt-res */
+.res {
+  outline: thin black;
+  outline-style: dashed;
+}
+
+.col.highlight {
+  -webkit-animation: yellow_in_fade_out 800ms linear;
+  -moz-animation: yellow_in_fade_out 800ms linear;
+  -o-animation: yellow_in_fade_out 800ms linear;
+  -ms-animation: yellow_in_fade_out 800ms linear;
+  animation: yellow_in_fade_out 800ms linear;
+}
+
+@-webkit-keyframes yellow_in_fade_out {
+  0%  { background-color: yellow; }
+  80%  { background-color: yellow; }
+  100% { background-color: transparent; }
+}
+@-moz-keyframes yellow_in_fade_out {
+  0%  { background-color: yellow; }
+  80%  { background-color: yellow; }
+  100% { background-color: transparent; }
+}
+@-o-keyframes yellow_in_fade_out {
+  0%  { background-color: yellow; }
+  80%  { background-color: yellow; }
+  100% { background-color: transparent; }
+}
+@keyframes yellow_in_fade_out {
+  0%   { background-color: transparent; }
+  0%  { background-color: yellow; }
+  80%  { background-color: yellow; }
+  100% { background-color: transparent; }
+}
+
 /* binary digit */
 
 .binary-digit > span {
@@ -227,16 +263,69 @@ div.eflag:hover {
   visibility: none;
   opacity: 0.0;
 }
-.binary-digit > .b1 {
+.res > .binary-digit > .b1 {
   margin-left: -12px;
 }
-.binary-digit.b0 > .b0,
-.binary-digit.b1 > .b1 {
+.res > .binary-digit.b0 > .b0,
+.res > .binary-digit.b1 > .b1 {
   visibility: visible;
   opacity: 1.0;
-  -webkit-transition: opacity 400ms linear;
-  -moz-transition: opacity 400ms linear;
-  -o-transition: opacity 400ms linear;
-  -ms-transition: opacity 400ms linear;
-  transition: opacity 400ms linear;
+  -webkit-animation: fade_in 800ms linear;
+  -moz-animation: fade_in 800ms linear;
+  -o-animation: fade_in 800ms linear;
+  -ms-animation: fade_in 800ms linear;
+  animation: fade_in 800ms linear;
+}
+
+.carry > .binary-digit > .b1 {
+  margin-left: -10px;
+}
+
+.carry > .binary-digit.b0 > .b0,
+.carry > .binary-digit.b1 > .b1 {
+  font-size: 10px;
+  -webkit-animation: fade_in_out 800ms linear;
+  -moz-animation: fade_in_out 800ms linear;
+  -o-animation: fade_in_out 800ms linear;
+  -ms-animation: fade_in_out 800ms linear;
+  animation: fade_in_out 800ms linear;
+  animation-delay: 200ms;
+}
+
+@-webkit-keyframes fade_in {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+@-moz-keyframes fade_in {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+@-o-keyframes fade_in {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes fade_in {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-webkit-keyframes fade_in_out {
+  0%   { opacity: 0; visibility: visible; }
+  50%  { opacity: 1; visibility: visible; }
+  100% { opacity: 0; visibility: hidden; }
+}
+@-moz-keyframes fade_in_out {
+  0%   { opacity: 0; visibility: visible; }
+  50%  { opacity: 1; visibility: visible; }
+  100% { opacity: 0; visibility: hidden; }
+}
+@-o-keyframes fade_in_out {
+  0%   { opacity: 0; visibility: visible; }
+  50%  { opacity: 1; visibility: visible; }
+  100% { opacity: 0; visibility: hidden; }
+}
+@keyframes fade_in_out {
+  0%   { opacity: 0; visibility: visible; }
+  50%  { opacity: 1; visibility: visible; }
+  100% { opacity: 0; visibility: hidden; }
 }

@@ -1,21 +1,38 @@
 <table>
 <tbody>
+
+  {{!-- assuming that tgt and src have same number of bits --}}
+  <tr class="carry">
+    {{#each tgt}}
+      {{> _binary-digit }}
+    {{/each}}
+    {{!-- last column --not used by carry --}}
+    <td></td>
+  </tr>
+
   <tr class="tgt">
-  {{#each tgt}}
-    <td data-bit="{{this}}">{{this}}</td>
-  {{/each}}
+    {{!-- carry out column --}}
+    <td></td>
+    {{#each tgt}}
+      <td class="col" data-bit="{{this}}">{{this}}</td>
+    {{/each}}
   </tr>
   
   <tr class="src">
-  {{#each src}}
-    <td class="src" data-bit="{{this}}">{{this}}</td>
-  {{/each}}
+    {{!-- carry out column  -- not used --}}
+    <td>{{operation}}</td>
+    {{#each src}}
+      <td class="col" data-bit="{{this}}">{{this}}</td>
+    {{/each}}
   </tr>
 
   <tr class="res">
-  {{#each src}}
-    {{> _binary-digit }}
-  {{/each}}
+    {{!-- carry out column -- not used --}}
+    <td></td>
+    {{#each src}}
+      {{> _binary-digit }}
+    {{/each}}
+  </tr>
 </tbody>
 </table>
 

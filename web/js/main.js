@@ -28,13 +28,13 @@ var initialState = {
 
 var docsEl = document.getElementById('docs')
 var adder = new Adder(docsEl)
-adder.init({ tgt: [ 0, 0, 0, 1,   1, 0, 1, 1 ]
-           , src: [ 0, 1, 0, 0,   1, 1, 0, 1 ] })
+adder.init({ tgt: [ 0, 0, 0, 1,   1, 0, 1, 1,  1, 1, 1, 1,   0, 1, 1, 0 ]
+           , src: [ 0, 0, 0, 1,   1, 0, 1, 1,  0, 1, 0, 0,   1, 1, 0, 1 ] })
 
 function next() {
   adder.nextBit()
 }
-setInterval(next, 500)
+setInterval(next, 800)
 return
 
 function initProgram() {
