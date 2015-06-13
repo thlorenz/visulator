@@ -1,4 +1,4 @@
-<table>
+<table class="src-tgt-res">
 <tbody>
 
   {{!-- assuming that tgt and src have same number of bits --}}
@@ -12,7 +12,7 @@
 
   <tr class="tgt">
     {{!-- carry out column --}}
-    <td></td>
+    <td> </td>
     {{#each tgt}}
       <td class="col" data-bit="{{this}}">{{this}}</td>
     {{/each}}
@@ -28,34 +28,10 @@
 
   <tr class="res">
     {{!-- carry out column -- not used --}}
-    <td></td>
+    <td> </td>
     {{#each src}}
       {{> _binary-digit }}
     {{/each}}
   </tr>
 </tbody>
 </table>
-
-
-{{!--
-bits = [ 
-    { tgt: 0, src: 1 }
-  , { tgt: 1, src: 1 }
-  , { tgt: 1, src: 0 }
-  , { tgt: 0, src: 0 }
-]
-
-bits = {
-  tgt: [ 0, 1, 1, 0 ],
-  src: [ 1, 1, 0, 0 ]
-}
-
-==>
-
-  0110
-+ 1100
-  ----
-  ????
-
---}}
-

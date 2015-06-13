@@ -221,9 +221,28 @@ div.eflag:hover {
 }
 
 /* src-tgt-res */
-.res {
-  outline: thin black;
-  outline-style: dashed;
+.src-tgt-res td { 
+  font-family: Helvetica;
+  font-size: 12px;
+  width: 13px;
+  margin-top: 0px;
+  line-height: 12px;
+}
+
+.src-tgt-res td:nth-child(4n+5){
+  border-right: solid 1px #aaa;
+}
+
+.src-tgt-res .carry td:nth-child(4n+5) {
+  border-right: none;
+}
+
+.res td {
+  border-top: solid 1px #aaa;
+}
+
+.res td:nth-child(1) {
+  border-top: none;
 }
 
 .col.highlight {
@@ -259,12 +278,12 @@ div.eflag:hover {
 /* binary digit */
 
 .binary-digit > span {
-  display: inline-block;
+  /* display: inline-block; */
   visibility: none;
   opacity: 0.0;
 }
 .res > .binary-digit > .b1 {
-  margin-left: -12px;
+  margin-left: -10px;
 }
 .res > .binary-digit.b0 > .b0,
 .res > .binary-digit.b1 > .b1 {
