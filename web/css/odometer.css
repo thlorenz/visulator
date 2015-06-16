@@ -22,8 +22,7 @@
   display: block;
   word-break: break-all;
   word-break: break-word;
-  -webkit-transition: 0.4s cubic-bezier(0.12, 0.78, 0.52, 1.1);
-          transition: 0.4s cubic-bezier(0.12, 0.78, 0.52, 1.1);
+  transition: 0.4s cubic-bezier(0.12, 0.78, 0.52, 1.1);
 }
 .odometer > span.d1:before {
   margin-top: -16px;

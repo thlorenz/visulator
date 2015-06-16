@@ -171,29 +171,13 @@ div.eflag:hover {
   border-radius: 100%;
 
   opacity: 0.2;
-  -webkit-transition: opacity 200ms linear;
-  -moz-transition: opacity 200ms linear;
-  -o-transition: opacity 200ms linear;
-  -ms-transition: opacity 200ms linear;
   transition: opacity 200ms linear;
-
-  background: rgba(210,255,82,1);
-  background: -moz-linear-gradient(left, rgba(210,255,82,1) 0%, rgba(145,232,66,1) 100%);
-  background: -webkit-gradient(left top, right top, color-stop(0%, rgba(210,255,82,1)), color-stop(100%, rgba(145,232,66,1)));
-  background: -webkit-linear-gradient(left, rgba(210,255,82,1) 0%, rgba(145,232,66,1) 100%);
-  background: -o-linear-gradient(left, rgba(210,255,82,1) 0%, rgba(145,232,66,1) 100%);
-  background: -ms-linear-gradient(left, rgba(210,255,82,1) 0%, rgba(145,232,66,1) 100%);
   background: linear-gradient(to right, rgba(210,255,82,1) 0%, rgba(145,232,66,1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d2ff52', endColorstr='#91e842', GradientType=1 );
   border: solid 3px black;
 }
 
 .led.lit {
   opacity: 1.0;
-  -webkit-transition: opacity 200ms linear;
-  -moz-transition: opacity 200ms linear;
-  -o-transition: opacity 200ms linear;
-  -ms-transition: opacity 200ms linear;
   transition: opacity 200ms linear;
 }
 
@@ -221,7 +205,7 @@ div.eflag:hover {
 }
 
 /* src-tgt-res */
-.src-tgt-res td { 
+.src-tgt-res td {
   font-family: Helvetica;
   font-size: 12px;
   width: 13px;
@@ -247,23 +231,10 @@ div.eflag:hover {
 
 .col.highlight {
   -webkit-animation: yellow_in_fade_out 800ms linear;
-  -moz-animation: yellow_in_fade_out 800ms linear;
-  -o-animation: yellow_in_fade_out 800ms linear;
-  -ms-animation: yellow_in_fade_out 800ms linear;
   animation: yellow_in_fade_out 800ms linear;
 }
 
 @-webkit-keyframes yellow_in_fade_out {
-  0%  { background-color: yellow; }
-  80%  { background-color: yellow; }
-  100% { background-color: transparent; }
-}
-@-moz-keyframes yellow_in_fade_out {
-  0%  { background-color: yellow; }
-  80%  { background-color: yellow; }
-  100% { background-color: transparent; }
-}
-@-o-keyframes yellow_in_fade_out {
   0%  { background-color: yellow; }
   80%  { background-color: yellow; }
   100% { background-color: transparent; }
@@ -290,9 +261,6 @@ div.eflag:hover {
   visibility: visible;
   opacity: 1.0;
   -webkit-animation: fade_in 800ms linear;
-  -moz-animation: fade_in 800ms linear;
-  -o-animation: fade_in 800ms linear;
-  -ms-animation: fade_in 800ms linear;
   animation: fade_in 800ms linear;
 }
 
@@ -304,22 +272,11 @@ div.eflag:hover {
 .carry > .binary-digit.b1 > .b1 {
   font-size: 10px;
   -webkit-animation: fade_in_out 800ms linear;
-  -moz-animation: fade_in_out 800ms linear;
-  -o-animation: fade_in_out 800ms linear;
-  -ms-animation: fade_in_out 800ms linear;
   animation: fade_in_out 800ms linear;
   animation-delay: 200ms;
 }
 
 @-webkit-keyframes fade_in {
-  0%   { opacity: 0; }
-  100% { opacity: 1; }
-}
-@-moz-keyframes fade_in {
-  0%   { opacity: 0; }
-  100% { opacity: 1; }
-}
-@-o-keyframes fade_in {
   0%   { opacity: 0; }
   100% { opacity: 1; }
 }
@@ -329,16 +286,6 @@ div.eflag:hover {
 }
 
 @-webkit-keyframes fade_in_out {
-  0%   { opacity: 0; visibility: visible; }
-  50%  { opacity: 1; visibility: visible; }
-  100% { opacity: 0; visibility: hidden; }
-}
-@-moz-keyframes fade_in_out {
-  0%   { opacity: 0; visibility: visible; }
-  50%  { opacity: 1; visibility: visible; }
-  100% { opacity: 0; visibility: hidden; }
-}
-@-o-keyframes fade_in_out {
   0%   { opacity: 0; visibility: visible; }
   50%  { opacity: 1; visibility: visible; }
   100% { opacity: 0; visibility: hidden; }
