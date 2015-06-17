@@ -1,14 +1,20 @@
 'use strict';
 
-var docs_hbs = require('../hbs/documentation.hbs')
-var samples    = require('../../test/fixtures/samples')
-var Program    = require('../../lib/program')
-var Renderer   = require('./renderer')
-var Adder = require('./adder')
-var asmEditor  = require('./asm-editor')()
-var byteEditor = require('./byte-editor')()
+var docs_hbs            = require('../hbs/documentation.hbs')
+var samples             = require('../../test/fixtures/samples')
+var Program             = require('../../lib/program')
+var Renderer            = require('./renderer')
+var InstructionRenderer = require('./instruction-renderer')
+var xtend               = require('xtend')
+var asmEditor           = require('./asm-editor')()
+var byteEditor          = require('./byte-editor')()
 
 var ENTRY_POINT = 0x100
+
+var defaultDocs = {
+    heading: 'Help and Instruction Details'
+  , text: 'Click on elements (like flags) to show details here.'
+}
 
 var initialState = {
     entryPoint: ENTRY_POINT
@@ -26,18 +32,11 @@ var initialState = {
   }
 }
 
-var docsEl = document.getElementById('docs')
-var adder = new Adder(docsEl)
-adder.init({
-    tgt: [ 0, 0, 0, 1,   1, 0, 1, 1,  1, 1, 1, 1,  0, 1, 1, 0,  1, 0, 1, 1,  1, 1, 1, 1,   0, 1, 1, 0,  1, 1, 1, 1 ]
-  , src: [ 0, 0, 0, 1,   1, 0, 1, 1,  0, 1, 0, 0,  1, 1, 0, 1,  1, 0, 1, 1,  0, 1, 0, 0,   1, 1, 0, 1,  0, 1, 0, 0 ]
-})
-
-function next() {
-  adder.nextBit()
+function clear() {
+  // TODO: stop animations
+  var docsEl = document.getElementById('docs')
+  docsEl.innerHTML = docs_hbs(defaultDocs)
 }
-setInterval(next, 800)
-return
 
 function initProgram() {
   return new Program({
@@ -52,12 +51,9 @@ function initRenderer(program) {
   return new Renderer(program._currentCPUState());
 }
 
+var docsEl = document.getElementById('docs')
 function initDocs(renderer) {
-  var docsEl = document.getElementById('docs')
-  docsEl.innerHTML = docs_hbs({
-      heading: 'Help'
-    , text: 'Click on elements (like flags) to show details here.'
-  })
+  docsEl.innerHTML = docs_hbs(defaultDocs)
   function renderDocs(docs) {
     docsEl.innerHTML = docs_hbs(docs)
   }
@@ -68,6 +64,8 @@ var program = initProgram()
 var renderer = initRenderer(program)
 initDocs(renderer)
 
+var instructionRenderer = new InstructionRenderer(docsEl)
+
 function step(fwd) {
   var state;
   if (fwd) {
@@ -75,9 +73,14 @@ function step(fwd) {
   } else {
     state = program.stepBack();
   }
+  clear();
   renderer.update(state)
   asmEditor.highlightInstruction(state.regs.eip);
+
+  var meta = program.peek().instructionMeta;
+  if (meta) instructionRenderer.render(xtend(meta));
 }
+
 
 function stepFwd() {
   step(true);
@@ -99,4 +102,3 @@ function onstep(pos, fwd) {
 
 asmEditor.init(samples.mix_01, ENTRY_POINT, onstep);
 byteEditor.init(samples.mix_01);
-

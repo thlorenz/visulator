@@ -61,7 +61,7 @@ function findParentWithDocs(el) {
 proto._createFlagEl = function _createFlagEl(flag) {
   var el = this._flagEls[flag.id] = document.getElementById(flag.id)
   var self = this;
-  el.onclick = function onclick(e) { 
+  el.onclick = function onclick(e) {
     var dataEl = findParentWithDocs(e.target)
     if (!dataEl) return;
     var docs = { heading: dataEl.dataset.name, text: dataEl.dataset.description }
@@ -113,13 +113,13 @@ proto._updateOdometerElements = function _updateOdometerElements(odometerEl, s) 
   }
 }
 
-proto._updateReg = function _updateReg(tgt, src, formatFn) {
+proto._updateReg = function _updateReg(dst, src, formatFn) {
   // src is stored in little endian format
   // we visualize it reversed since that reads easier
-  this._updateOdometerElements(tgt[0], formatFn(src[3]))
-  this._updateOdometerElements(tgt[1], formatFn(src[2]))
-  this._updateOdometerElements(tgt[2], formatFn(src[1]))
-  this._updateOdometerElements(tgt[3], formatFn(src[0]))
+  this._updateOdometerElements(dst[0], formatFn(src[3]))
+  this._updateOdometerElements(dst[1], formatFn(src[2]))
+  this._updateOdometerElements(dst[2], formatFn(src[1]))
+  this._updateOdometerElements(dst[3], formatFn(src[0]))
 }
 
 proto._updateRegs = function _updateRegs(regs) {

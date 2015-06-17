@@ -186,7 +186,7 @@ div.eflag:hover {
 .docs {
   background: antiquewhite;
   width: 504px;
-  height: 120px;
+  height: 200px;
   margin-left: 12px;
   border: solid #333 5px;
   border-radius: 10px;
@@ -204,8 +204,13 @@ div.eflag:hover {
   font-weight: bold;
 }
 
-/* src-tgt-res */
-.src-tgt-res td {
+.docs .instruction .visualization {
+  border-top: solid 1px #888;
+  text-align:;
+}
+
+/* src-dst-res */
+.src-dst-res td {
   font-family: Helvetica;
   font-size: 12px;
   width: 13px;
@@ -213,11 +218,11 @@ div.eflag:hover {
   line-height: 12px;
 }
 
-.src-tgt-res td:nth-child(4n+5){
+.src-dst-res td:nth-child(4n+5){
   border-right: solid 1px #aaa;
 }
 
-.src-tgt-res .carry td:nth-child(4n+5) {
+.src-dst-res .carry td:nth-child(4n+5) {
   border-right: none;
 }
 

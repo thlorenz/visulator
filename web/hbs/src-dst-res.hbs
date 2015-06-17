@@ -1,23 +1,23 @@
-<table class="src-tgt-res">
+<table class="src-dst-res">
 <tbody>
 
-  {{!-- assuming that tgt and src have same number of bits --}}
+  {{!-- assuming that dst and src have same number of bits --}}
   <tr class="carry">
-    {{#each tgt}}
+    {{#each dst}}
       {{> _binary-digit }}
     {{/each}}
     {{!-- last column --not used by carry --}}
     <td></td>
   </tr>
 
-  <tr class="tgt">
+  <tr class="dst">
     {{!-- carry out column --}}
     <td> </td>
-    {{#each tgt}}
+    {{#each dst}}
       <td class="col" data-bit="{{this}}">{{this}}</td>
     {{/each}}
   </tr>
-  
+
   <tr class="src">
     {{!-- carry out column  -- not used --}}
     <td>{{operation}}</td>
