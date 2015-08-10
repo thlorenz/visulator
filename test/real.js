@@ -22,7 +22,7 @@ function inspect(obj, depth) {
 
 var filter = [
 /*jshint elision:true*/
-  , 'subi_w'
+  , 'dec_w'
 ]
 
 fs
