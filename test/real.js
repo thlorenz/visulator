@@ -12,6 +12,7 @@ var path = require('path')
 var colors = require('ansicolors')
 var format = require('util').format
 var hex = require('../lib/hexstring')
+var Regs = require('../lib/x86/regs')
 
 var ControlUnit = require('../lib/x86/cu')
 
@@ -28,7 +29,7 @@ fs
   .readdirSync(path.join(__dirname, 'fixtures'))
   .filter(function (x) { return path.extname(x) === '.json' })
 //  .filter(function (x) { return ~filter.indexOf(path.basename(x).slice(0, -5)) })
-  .filter(function (x) { return !~filter.indexOf(path.basename(x).slice(0, -5)) })
+//  .filter(function (x) { return !~filter.indexOf(path.basename(x).slice(0, -5)) })
   .filter(function (x) { return !/^sample-/.test(path.basename(x)) })
   .forEach(runTest)
 
@@ -91,6 +92,12 @@ proto._stepNcheck = function _stepNcheck(step) {
   this._checkRegs(step.regs)
 }
 
+function eflagsToString(val) {
+  var r = new Regs();
+  r.eflags = val;
+  return r.flagsToString();
+}
+
 proto._checkRegs = function _checkRegs(expected) {
   var self = this;
   var expectedRegs;
@@ -104,6 +111,10 @@ proto._checkRegs = function _checkRegs(expected) {
     var act = self._cu.regs[r];
     self._t.equal(act, expect,
                   format('%s: 0x%s === 0x%s', r, hex(act), hex(expect)))
+    if (r === 'eflags' && act !== expect) {
+      console.error('Expected:%s\nWanted:  %s',
+                    eflagsToString(expect), eflagsToString(act))
+    }
   }
 
   expectedRegs = Object.keys(expected).reduce(pullHex, {});
