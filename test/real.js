@@ -22,7 +22,7 @@ function inspect(obj, depth) {
 
 var filter = [
 /*jshint elision:true*/
-  , 'subi_dw'
+  , 'subi_w'
 ]
 
 fs
@@ -112,7 +112,7 @@ proto._checkRegs = function _checkRegs(expected) {
     self._t.equal(act, expect,
                   format('%s: 0x%s === 0x%s', r, hex(act), hex(expect)))
     if (r === 'eflags' && act !== expect) {
-      console.error('Expected:%s\nWanted:  %s',
+      console.error('Expected:%s\nActual:  %s',
                     eflagsToString(expect), eflagsToString(act))
     }
   }
