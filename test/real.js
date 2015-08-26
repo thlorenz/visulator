@@ -22,14 +22,14 @@ function inspect(obj, depth) {
 
 var filter = [
 /*jshint elision:true*/
-  , 'jmp'
+  , 'andi_dw'
 ]
 
 fs
   .readdirSync(path.join(__dirname, 'fixtures'))
   .filter(function (x) { return path.extname(x) === '.json' })
 //  .filter(function (x) { return ~filter.indexOf(path.basename(x).slice(0, -5)) })
-//  .filter(function (x) { return !~filter.indexOf(path.basename(x).slice(0, -5)) })
+  .filter(function (x) { return !~filter.indexOf(path.basename(x).slice(0, -5)) })
   .filter(function (x) { return !/^sample-/.test(path.basename(x)) })
   .forEach(runTest)
 
