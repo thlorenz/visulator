@@ -4,8 +4,9 @@
   "description": "A machine emulator that visualizes how each instruction is processed",
   "main": "index.js",
   "scripts": {
-    "test": "npm run fixtures && tape test/*.js",
+    "test": "npm run fixtures && npm run tape",
     "fixtures": "make clean && make fixtures -j8",
+    "tape": "tape test/*.js",
     "docme": "docme README.md -- --configure .jsdocrc && sed -e 's-/master/-/master/lib/-g' README.md > fixed.md && mv fixed.md README.md",
     "watch": "watchify -d web/js/main.js -o web/js/bundle.js",
     "bundle": "browserify web/js/main.js | uglifyjs >web/js/bundle.js",
