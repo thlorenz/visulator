@@ -66,15 +66,15 @@ the <strong>first</strong> register of the pair.</p>
 <dt class="tag-source">Source:</dt>
 <dd class="tag-source"><ul class="dummy">
 <li>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js">x86/cu.js</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.reg-pair.js">x86/cu.reg-pair.js</a>
 <span>, </span>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L241">lineno 241</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.reg-pair.js#L61">lineno 61</a>
 </li>
 </ul></dd>
 </dl>
 </dd>
 <dt>
-<h4 class="name" id="cu::_regPair"><span class="type-signature"></span>cu::_regPair<span class="type-signature"></span></h4>
+<h4 class="name" id="cu::_dwordRegPair"><span class="type-signature"></span>cu::_dwordRegPair<span class="type-signature"></span></h4>
 </dt>
 <dd>
 <div class="description">
@@ -84,14 +84,20 @@ mov, add, etc.</p>
 For byte size general puropose regs we use @see _byteRegPair instead.</p>
 <p>Operations for smaller pairs just have a different
 opcode than dword operations prefixing the pair.</p>
+<p>Certain operations like add/sub only use first reg of the pair, addressing
+it via the pair code.
+In that case the operation may also be encoded in the reg pair code, i.e.</p>
+<pre><code>add ecx, ...  ; 83 c1 ... uses c1 to indicate ecx
+sub ecx, ...  ; 83 e9 ... uses e9 to indicate ecx
+cmp ecx, ...  ; 83 f9 ... uses f9 to indicate ecx</code></pre>
 </div>
 <dl class="details">
 <dt class="tag-source">Source:</dt>
 <dd class="tag-source"><ul class="dummy">
 <li>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js">x86/cu.js</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.reg-pair.js">x86/cu.reg-pair.js</a>
 <span>, </span>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L210">lineno 210</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.reg-pair.js#L10">lineno 10</a>
 </li>
 </ul></dd>
 </dl>
@@ -109,7 +115,7 @@ opcode than dword operations prefixing the pair.</p>
 <li>
 <a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js">x86/regs.js</a>
 <span>, </span>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js#L174">lineno 174</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js#L176">lineno 176</a>
 </li>
 </ul></dd>
 </dl>
@@ -146,7 +152,7 @@ will handle maskable hardware interrupts</li>
 <li>
 <a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js">x86/regs.js</a>
 <span>, </span>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js#L124">lineno 124</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js#L126">lineno 126</a>
 </li>
 </ul></dd>
 </dl>
@@ -212,7 +218,7 @@ Type
 </dl>
 </dd>
 <dt>
-<h4 class="name" id="cu::_dec"><span class="type-signature"></span>cu::_dec<span class="signature">(opcode, asm, nbytes)</span><span class="type-signature"></span></h4>
+<h4 class="name" id="cu::_dec"><span class="type-signature"></span>cu::_dec<span class="signature">(opcode, asm, srcbytes, dstbytes)</span><span class="type-signature"></span></h4>
 </dt>
 <dd>
 <div class="description">
@@ -241,7 +247,13 @@ Type
 <td class="description last"></td>
 </tr>
 <tr>
-<td class="name"><code>nbytes</code></td>
+<td class="name"><code>srcbytes</code></td>
+<td class="type">
+</td>
+<td class="description last"></td>
+</tr>
+<tr>
+<td class="name"><code>dstbytes</code></td>
 <td class="type">
 </td>
 <td class="description last"></td>
@@ -254,13 +266,13 @@ Type
 <li>
 <a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js">x86/cu.js</a>
 <span>, </span>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L307">lineno 307</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L206">lineno 206</a>
 </li>
 </ul></dd>
 </dl>
 </dd>
 <dt>
-<h4 class="name" id="cu::_inc"><span class="type-signature"></span>cu::_inc<span class="signature">(opcode, asm, nbytes)</span><span class="type-signature"></span></h4>
+<h4 class="name" id="cu::_inc"><span class="type-signature"></span>cu::_inc<span class="signature">(opcode, asm, srcbytes, dstbytes)</span><span class="type-signature"></span></h4>
 </dt>
 <dd>
 <div class="description">
@@ -289,7 +301,13 @@ Type
 <td class="description last"></td>
 </tr>
 <tr>
-<td class="name"><code>nbytes</code></td>
+<td class="name"><code>srcbytes</code></td>
+<td class="type">
+</td>
+<td class="description last"></td>
+</tr>
+<tr>
+<td class="name"><code>dstbytes</code></td>
 <td class="type">
 </td>
 <td class="description last"></td>
@@ -302,13 +320,13 @@ Type
 <li>
 <a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js">x86/cu.js</a>
 <span>, </span>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L294">lineno 294</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L192">lineno 192</a>
 </li>
 </ul></dd>
 </dl>
 </dd>
 <dt>
-<h4 class="name" id="cu::_movr"><span class="type-signature"></span>cu::_movr<span class="signature">(opcode, asm, nbytes)</span><span class="type-signature"></span></h4>
+<h4 class="name" id="cu::_movr"><span class="type-signature"></span>cu::_movr<span class="signature">(opcode, asm, srcbytes)</span><span class="type-signature"></span></h4>
 </dt>
 <dd>
 <div class="description">
@@ -343,7 +361,7 @@ to move into which).</p>
 <td class="description last"></td>
 </tr>
 <tr>
-<td class="name"><code>nbytes</code></td>
+<td class="name"><code>srcbytes</code></td>
 <td class="type">
 <span class="param-type">Number</span>
 </td>
@@ -357,7 +375,7 @@ to move into which).</p>
 <li>
 <a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js">x86/cu.js</a>
 <span>, </span>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L396">lineno 396</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L450">lineno 450</a>
 </li>
 </ul></dd>
 </dl>
@@ -432,7 +450,7 @@ instead).</p>
 <li>
 <a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js">x86/cu.js</a>
 <span>, </span>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L50">lineno 50</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L58">lineno 58</a>
 </li>
 </ul></dd>
 </dl>
@@ -477,7 +495,7 @@ instead).</p>
 <li>
 <a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js">x86/cu.js</a>
 <span>, </span>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L269">lineno 269</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/cu.js#L163">lineno 163</a>
 </li>
 </ul></dd>
 </dl>
@@ -853,7 +871,7 @@ we use for the latter.</p>
 <li>
 <a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js">x86/regs.js</a>
 <span>, </span>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js#L42">lineno 42</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js#L44">lineno 44</a>
 </li>
 </ul></dd>
 </dl>
@@ -890,7 +908,7 @@ Leaves all other flags alone.</p>
 <li>
 <a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js">x86/regs.js</a>
 <span>, </span>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js#L262">lineno 262</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js#L264">lineno 264</a>
 </li>
 </ul></dd>
 </dl>
@@ -929,7 +947,7 @@ our flag since that's the only bit in the mask that's <code>0</code>.</p>
 <li>
 <a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js">x86/regs.js</a>
 <span>, </span>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js#L236">lineno 236</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js#L238">lineno 238</a>
 </li>
 </ul></dd>
 </dl>
@@ -967,7 +985,7 @@ and then shifts our flag bit into lowest bit.</p>
 <li>
 <a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js">x86/regs.js</a>
 <span>, </span>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js#L204">lineno 204</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js#L206">lineno 206</a>
 </li>
 </ul></dd>
 </dl>
@@ -1017,7 +1035,7 @@ our flag since that bit is set in the mask.</p>
 <li>
 <a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js">x86/regs.js</a>
 <span>, </span>
-<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js#L218">lineno 218</a>
+<a href="https://github.com/thlorenz/visulator/blob/master/lib/x86/regs.js#L220">lineno 220</a>
 </li>
 </ul></dd>
 </dl>
