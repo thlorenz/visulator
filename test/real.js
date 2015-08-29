@@ -22,7 +22,7 @@ function inspect(obj, depth) {
 
 var filter = [
 /*jshint elision:true*/
-  , 'andi_b'
+  , 'andr_dw'
 ]
 
 fs
