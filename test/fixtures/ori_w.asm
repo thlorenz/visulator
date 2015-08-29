@@ -1,0 +1,46 @@
+; vim: ft=nasm
+
+section .text
+global _start
+_start:
+  nop
+.gai_s:
+  mov ax, 0x1
+  or  ax, 0x1
+
+  mov cx, 0x1
+  or  cx, 0x1
+
+  mov bx, 0x1
+  or  bx, 0x1
+
+  mov dx, 0x1
+  or  dx, 0x1
+
+  mov sp, 0x1
+  or  sp, 0x1
+
+  mov bp, 0x1
+  or  bp, 0x1
+
+  mov si, 0x1
+  or  si, 0x1
+
+  mov di, 0x1
+  or  di, 0x1
+
+  mov ax, 0x2
+  or  ax, 0x1
+
+  mov cx, 0x1
+  or  cx, 0x2
+
+  mov bx, 0x1
+  or  bx, 0x3
+
+  mov dx, 0x0
+  or  dx, 0x1
+.gai_e:
+  mov eax,1
+  mov ebx,0
+  int 80H
