@@ -40,6 +40,50 @@ _start:
 
   mov dx, 0x0
   or  dx, 0x1
+
+  ; edge cases
+  mov cx, 0x0
+  or  cx, 0xffff
+
+  mov cx, 0x11aa
+  or  cx, 0x22ff
+
+  mov cx, 0x0
+  or  cx, 0xffee
+
+  mov cx, 0x0
+  or  cx, 0xffaa
+
+  mov cx, 0x0
+  or  cx, 0xff88 ;-> 66 83 c9 88    (only lower word included, needs to be filled with ff)
+
+  mov cx, 0x0
+  or  cx, 0xff77 ;-> 66 81 c9 77 ff (full word included)
+
+  mov cx, 0x0
+  or  cx, 0xff22
+
+  mov dx, 0x0
+  or  dx, 0xffff
+
+  mov dx, 0x11aa
+  or  dx, 0x22ff
+
+  mov ax, 0x0
+  or  ax, 0xffff
+
+  mov ax, 0x0
+  or  ax, 0xffee
+
+  mov ax, 0x0
+  or  ax, 0xffaa
+
+  mov ax, 0x0
+  or  ax, 0xff88 ;-> 66 83 c8 88    (only lower word included, needs to be filled with ff)
+
+  mov ax, 0x0
+  or  ax, 0xff77 ;-> 66 0d 77 ff (different opcode and full word included)
+
 .gai_e:
   mov eax,1
   mov ebx,0
