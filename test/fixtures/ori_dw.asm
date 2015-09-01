@@ -40,6 +40,49 @@ _start:
 
   mov edx, 0x0
   or  edx, 0x1
+
+  ; edge cases
+  mov ecx, 0x0
+  or  ecx, 0xffffffff   ; should set SF
+
+  mov ecx, 0x0
+  or  ecx, 0xffff
+
+  mov ecx, 0x0
+  or  ecx, 0xffffffaa
+
+  mov ecx, 0x0
+  or  ecx, 0xffffff88 ;-> 66 83 c9 88    (only lower word included, needs to be filled with ff)
+
+  mov ecx, 0x0
+  or  ecx, 0xffffff77 ;-> 66 81 c9 77 ff (full word included)
+
+  mov ecx, 0x0
+  or  ecx, 0xffffff22
+
+  mov ecx, 0x11aaddee
+  or  ecx, 0x22ffaaff   ; should set SF
+
+  mov edx, 0x0
+  or  edx, 0xffffffff   ; should set SF
+
+  mov edx, 0x0
+  or  edx, 0xffff
+
+  mov edx, 0x11aaddee
+  or  edx, 0x22ffaaff   ; should set SF
+
+  mov eax, 0x0
+  or  eax, 0xffffffff   ; should set SF
+
+  mov eax, 0x0
+  or  eax, 0xffff
+
+  mov eax, 0x0
+  or  eax, 0xffee
+
+  mov eax, 0x11aaddee
+  or  eax, 0x22ffaaff   ; should set SF
 .gai_e:
   mov eax,1
   mov ebx,0
