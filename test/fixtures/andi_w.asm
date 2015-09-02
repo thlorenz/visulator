@@ -40,6 +40,50 @@ _start:
 
   mov dx, 0x0
   and dx, 0x1
+
+  ; edge cases
+  mov cx, 0x0
+  and cx, 0xffff
+
+  mov cx, 0x11aa
+  and cx, 0x22ff
+
+  mov cx, 0x0
+  and cx, 0xffee
+
+  mov cx, 0x0
+  and cx, 0xffaa
+
+  mov cx, 0x0
+  and cx, 0xff88
+
+  mov cx, 0x0
+  and cx, 0xff77
+
+  mov cx, 0x0
+  and cx, 0xff22
+
+  mov dx, 0x0
+  and dx, 0xffff
+
+  mov dx, 0x11aa
+  and dx, 0x22ff
+
+  mov ax, 0x0
+  and ax, 0xffff
+
+  mov ax, 0x0
+  and ax, 0xffee
+
+  mov ax, 0x0
+  and ax, 0xffaa
+
+  mov ax, 0x0
+  and ax, 0xff88
+
+  mov ax, 0x0
+  and ax, 0xff77
+
 .gai_e:
   mov eax,1
   mov ebx,0
