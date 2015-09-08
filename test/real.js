@@ -22,24 +22,17 @@ function inspect(obj, depth) {
 
 var filter = [
 /*jshint elision:true*/
-  'je_jne'
 ]
 
 fs
   .readdirSync(path.join(__dirname, 'fixtures'))
   .filter(function (x) { return path.extname(x) === '.json' })
 // .filter(function (x) { return ~filter.indexOf(path.basename(x).slice(0, -5)) })
-.filter(function (x) { return !~filter.indexOf(path.basename(x).slice(0, -5)) })
+//.filter(function (x) { return !~filter.indexOf(path.basename(x).slice(0, -5)) })
   .filter(function (x) { return !/^sample-/.test(path.basename(x)) })
   .forEach(runTest)
 
-function parseOpcode(acc, instruction) {
-  function parseCode(c) { return parseInt(c, 16) }
-  var codes = instruction.trim().split(' ').map(parseCode);
-  // concat is slow, so if we ever deal with large opcodes
-  // and your tests are slowing down, copy them one by one instead
-  return acc.concat(codes);
-}
+function parseOpcode(c) { return parseInt(c, 16) }
 
 function parseRegs(regs) {
   function parse(acc, r) {
@@ -55,7 +48,7 @@ function RealTester(t, fixture) {
   this._t       = t;
   this._fixture = fixture;
   this._steps   = fixture.steps
-  this._opcodes = fixture.opcodes.reduce(parseOpcode, [])
+  this._opcodes = fixture.opcodes.map(parseOpcode, [])
 
   this._initCu(this._opcodes)
 }
@@ -124,6 +117,7 @@ proto._checkRegs = function _checkRegs(expected) {
 
 function runTest(jsonFile) {
   test('\ngai ' + jsonFile, function (t) {
+    t.ok(1, colors.green(jsonFile + ' ...'))
     new RealTester(t, require('./fixtures/' + jsonFile)).run()
   })
 }
