@@ -27,7 +27,13 @@ _start:
   mov  ecx, 0x66   ; shouldn't get here
 
 .not_zero:
-  mov  ecx, 0x0
+  mov  ecx, 0x3
+
+.loop:
+  dec  ecx
+  test ecx, ecx
+  jnz  .loop
+
 
 .gai_e:
   mov  eax,1
